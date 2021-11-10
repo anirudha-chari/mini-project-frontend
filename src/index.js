@@ -3,10 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CategoryPane } from './components/routes/Category';
+import { Product } from './components/routes/Product';
+import { HomePane } from './components/routes/Home';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} >
+          <Route path="home" element={<HomePane />} />
+          <Route path="healthconcerns" element={<CategoryPane />} />
+          <Route path="product" element={<Product />} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
