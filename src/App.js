@@ -7,6 +7,10 @@ import { ProductPage } from './components/routes/ProductPage';
 import { HomePane } from './components/routes/Home';
 import { Profile } from './components/routes/Profile';
 
+import './App.css';
+import {Link,Routes,Route} from 'react-router-dom'
+import Navbar from './components/Navbar';
+import { BrowserRouter} from 'react-router-dom';
 function App() {
   return (
     <div>
