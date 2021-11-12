@@ -9,7 +9,7 @@ export const Product = (props) => {
     const [quantity, setQuantity] = useState(1)
     const [btndisabled, setBtndisabled] = useState(true)
     return (
-        <section className="product-pane row">
+        <main className="product-pane row">
             <div className="col-4 img-container">
             <img src={sanitizer} alt="..." className="img-fluid" />
             </div>
@@ -39,7 +39,7 @@ export const Product = (props) => {
                 </div>
                 <AddToCartBtn/>
             </div>
-        </section>
+        </main>
     );
 }
 

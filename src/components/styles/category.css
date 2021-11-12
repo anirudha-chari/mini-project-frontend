@@ -1,0 +1,7 @@
+.filter-col {
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.3);
+}
+.filter-section {
+    /* border-bottom: 1px solid; */
+    padding: 20px;
+}

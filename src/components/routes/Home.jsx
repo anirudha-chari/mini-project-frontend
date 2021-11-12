@@ -5,7 +5,7 @@ import medicine from '../../images/medicine.png'
 export const HomePane = props => {
     return (
         <section>
-            <CardContainer title="shop by health conditions">
+            <CardContainer title="Shop by health conditions">
                 <CategoryCard logo={medicine}/>
                 <CategoryCard logo={medicine}/>
                 <CategoryCard logo={medicine}/>

@@ -37,8 +37,8 @@ export const ProductCard = (props) => {
 
 export const CategoryCard = (props) => {
     return (
-        <button className="card categorycard" title={props.title}>
+        <Link className="card categorycard" title={props.title} to="/category">
             <img src={props.logo} alt={props.title} className="card-img" />
-        </button>
+        </Link>
     )
 }

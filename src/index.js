@@ -14,7 +14,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} >
           <Route path="home" element={<HomePane />} />
-          <Route path="healthconcerns" element={<CategoryPane />} />
+          <Route path="category" element={<CategoryPane />} />
           <Route path="product" element={<Product />} />
           <Route
             path="*"
