@@ -6,7 +6,7 @@ export const Navbar = props => {
         <header>
             <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
                 <div class="container-fluid">
-                    <Link class="navbar-brand" to="/home">Big Pharma</Link>
+                    <Link class="navbar-brand" to="/">Big Pharma</Link>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
