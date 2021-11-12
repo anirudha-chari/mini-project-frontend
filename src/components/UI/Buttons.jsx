@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 export function AddToCartBtn(props) {
     return (
-        <a className="btn btn-outline-warning add-to-cart-btn">Add to cart</a>
+        <button type="submit" className="btn btn-outline-warning add-to-cart-btn" to="/Cart">Add to cart</button>
     )
 }

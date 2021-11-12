@@ -4,28 +4,28 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export const Navbar = props => {
     return (
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
-                <div class="container-fluid">
-                    <Link class="navbar-brand" to="/">Big Pharma</Link>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
+                <div className="container-fluid">
+                    <Link className="navbar-brand" to="/">Big Pharma</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <Link class="nav-link" to="/healthconcerns">Health Concerns</Link>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/healthconcerns">Health Concerns</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link class="nav-link" to="/personalcare">Personal Care</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/personalcare">Personal Care</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link class="nav-link" to="/nutrition">Nutrition</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/nutrition">Nutrition</Link>
                             </li>
                         </ul>
                     </div>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button class ="btn btn-outline-primary" type ="submit">Search</button>
+                        <form className="d-flex">
+                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                            <button className ="btn btn-outline-primary" type ="submit">Search</button>
                         </form>
                 </div>
             </nav>

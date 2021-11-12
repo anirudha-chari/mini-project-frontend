@@ -1,8 +1,9 @@
 import { CardContainer, CategoryCard, ProductCard } from "../UI/Card"
-import { Navbar } from "../UI/NavBar"
 import medicine from '../../images/medicine.png'
+import productAPI  from "../../mockdb"
 
 export const HomePane = props => {
+    const {products} = productAPI
     return (
         <section>
             <CardContainer title="Shop by health conditions">
@@ -16,14 +17,9 @@ export const HomePane = props => {
                 <CategoryCard logo={medicine}/>
             </CardContainer>
             <CardContainer title="Best sellers">
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
+            {products.map(product => {
+                        return  <ProductCard logo={product.logo} id={product.id} key={product.id}/>
+                    })}
             </CardContainer>
         </section>
     )
