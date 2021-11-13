@@ -1,10 +1,15 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { ProductCard } from "../UI/Card"
 import '../styles/category.css'
-import productAPI from '../../mockdb'
+import { useParams } from "react-router"
+import { useState, useEffect } from "react"
 
-export const CategoryPane = props => {
-    const {products} = productAPI
+export const CategoryPage = props => {
+    const params = useParams()
+    const [products, setProducts] = useState(null)
+    useEffect(() => fetch(`https://fakestoreapi.com/products/category/${params.name}`)
+    .then(res=>res.json())
+    .then(json=>setProducts(json)), [params.name])
+
     return (
         <div className="row">
             <aside className="col-2 filters">
@@ -86,8 +91,8 @@ export const CategoryPane = props => {
                     </div>
                 {/* </div> */}
                 <main className="row">
-                    {products.map(product => {
-                        return  <ProductCard logo={product.logo} id={product.id}/>
+                    {products && products.map(product => {
+                        return  <ProductCard logo={product.image} id={product.id} key={product.id} title={product.title}/>
                     })}
                 </main>
             </div>

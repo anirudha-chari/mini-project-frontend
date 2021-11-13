@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { AddToCartBtn } from './Buttons';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/product.css'
 
 export const Product = (props) => {    
@@ -9,13 +8,13 @@ export const Product = (props) => {
     return (
         <main className="product-pane row">
             <div className="col-4 img-container">
-            <img src={props.logo} alt="..." className="img-fluid" />
+            <img src={props.logo} alt={props.name} className="img-fluid" />
             </div>
-            <div className="col-3 product-info">
+            <div className="col-7 product-info">
                 <h2 className="product-name"> {props.name}</h2>
                 <Rating />
                 <h3>price: <span className="price-tag">₹{props.price}</span></h3>
-                <p className="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque iure animi distinctio, aspernatur sequi provident dolor officiis aliquid libero laborum quas reprehenderit alias reiciendis neque ipsam exercitationem tenetur. Exercitationem, officia.</p>
+                <p className="product-description">{props.desc}</p>
                 <div>
                     <button onClick={
                         () => {
