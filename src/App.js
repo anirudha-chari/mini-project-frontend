@@ -1,16 +1,12 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/UI/NavBar';
+import { Navbar } from './components/UI/Navbar';
 import { CategoryPage } from './components/routes/Category';
 import { ProductPage } from './components/routes/ProductPage';
 import { HomePane } from './components/routes/Home';
 import { Profile } from './components/routes/Profile';
 
-import './App.css';
-import {Link,Routes,Route} from 'react-router-dom'
-import Navbar from './components/Navbar';
-import { BrowserRouter} from 'react-router-dom';
 function App() {
   return (
     <div>

@@ -4,11 +4,13 @@
     top:58.5px;
     list-style: none;
     text-align: start;
+    z-index: 1;
   }
   
   .submenu li {
     background: rgb(0, 212, 212);
     cursor: pointer;
+    z-index: 1;
   }
   
   .submenu li a:hover {

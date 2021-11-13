@@ -19,7 +19,7 @@ export const HomePane = props => {
             </CardContainer>
             <CardContainer title="Best sellers">
                 { products && products.map(product => {
-                    return <ProductCard logo={product.image} title={product.title} id={product.id} key={product.id} />
+                    return <ProductCard logo={product.image} title={product.title} id={product.id} key={product.id} price={product.price}/>
                 })}
             </CardContainer>
         </section>

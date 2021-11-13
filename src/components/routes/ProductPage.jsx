@@ -22,7 +22,7 @@ export const ProductPage = props => {
             {product && <Product logo={product.image} name={product.title} price={product.price} desc={product.description}/>}
             <CardContainer title="Similar products">
                 {products && products.map(item => {
-                    return item && <ProductCard logo={item.image} id={item.id} key={item.id} title={item.title} />
+                    return item && <ProductCard logo={item.image} id={item.id} key={item.id} title={item.title} price={product.price}/>
                 })}
             </CardContainer>
         </div>
