@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../constants/URL";
 import profileicon from '../../images/profileicon.png'
 
 export const Profile = props => {
     const [user, setuser] = useState(null)
-    useEffect(() => fetch('https://fakestoreapi.com/users/1')
+    useEffect(() => fetch(BASE_URL+'/users/1')
         .then(res => res.json())
         .then(json => setuser(json))
         .catch(), [])

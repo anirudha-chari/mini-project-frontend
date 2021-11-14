@@ -3,17 +3,18 @@ import { Product } from '../UI/Product'
 import { ProductCard } from '../UI/Card'
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
+import { BASE_URL } from '../../constants/URL';
 
 export const ProductPage = props => {
     const params = useParams()
 
     const [product, setProduct] = useState(null)
-    useEffect(() => fetch(`https://fakestoreapi.com/products/${params.id}`)
+    useEffect(() => fetch(BASE_URL+`/products/${params.id}`)
     .then(res=>res.json())
     .then(json=>setProduct(json)), [params.id,])
 
     const [products, setProducts] = useState(null)
-    useEffect(() => fetch(`https://fakestoreapi.com/products?limit=20`)
+    useEffect(() => fetch(BASE_URL+`/products?limit=20`)
     .then(res=>res.json())
     .then(json=>setProducts(json)), [])
 

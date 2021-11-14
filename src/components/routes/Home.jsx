@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react"
 import { CardContainer, CategoryCard, ProductCard } from "../UI/Card"
+import {BASE_URL} from '../../constants/URL'
 
 export const HomePane = props => {
     const [categories, setCategories] = useState(null)
     const [products, setProducts] = useState(null)
-    useEffect(() => fetch('https://fakestoreapi.com/products/categories')
+    useEffect(() => fetch(BASE_URL+'/products/categories')
     .then(res => res.json())
     .then(json=> setCategories(json)), [])
 
-    useEffect(() => fetch('https://fakestoreapi.com/products?limit=10')
+    useEffect(() => fetch(BASE_URL+'/products?limit=10')
     .then(res=>res.json())
     .then(json=>setProducts(json)), [])
 
