@@ -1,0 +1,22 @@
+.productlist{
+    flex: 4;
+    /* background-color: aqua; */
+    /* height: 1000px; */
+    /* margin-left: 2px; */
+}
+
+.productListEdit{
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(172, 105, 218, 0.541);
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+}
+
+.productListDelete{
+    color: red;
+    cursor: pointer;
+
+}

@@ -1,12 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/UI/Navbar';
+import { Navbar } from './components/UI/NavBar';
 import { CategoryPage } from './components/routes/Category';
 import { ProductPage } from './components/routes/ProductPage';
 import { HomePane } from './components/routes/Home';
 import { Profile } from './components/routes/Profile';
-
+import AdminPage from './components/UI/AdminPage';
+import UserList from './components/UI/UserList'
+import AdminProductList from './components/UI/AdminProductList'
 function App() {
   return (
     <div>
@@ -24,6 +26,12 @@ function App() {
             </main>
           }
         />
+     
+       
+         
+        <Route path="admin" element={<AdminPage/>}/>
+        <Route path="adminviewusers"element={<UserList/>}/>
+        <Route path="/adminviewproducts" element={<AdminProductList/>}></Route>
       </Routes>
     </div>
   );
