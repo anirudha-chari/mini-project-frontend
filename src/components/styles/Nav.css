@@ -1,5 +1,6 @@
 .navbar {
     background-color: #1b1919;
+    z-index: 2;
 }
 
 .nav-left, .nav-right {

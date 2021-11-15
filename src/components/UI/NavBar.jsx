@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import "../styles/Navbar.css"
 import '../styles/Nav.css'
-import { NavLink } from "react-router-dom";
 import { navItems } from "./NavItems";
 import Dropdown from "./Dropdown";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
