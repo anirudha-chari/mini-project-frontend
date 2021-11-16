@@ -9,9 +9,10 @@ export const HomePane = props => {
     .then(res => res.json())
     .then(json=> setCategories(json)), [])
 
-    useEffect(() => fetch(BASE_URL+'/products?limit=10')
+    useEffect(() => fetch(BASE_URL+'/products')
     .then(res=>res.json())
-    .then(json=>setProducts(json)), [])
+    .then(json=>setProducts(json))
+    , [])
 
     return (
         <section>
@@ -20,7 +21,7 @@ export const HomePane = props => {
             </CardContainer>
             <CardContainer title="Best sellers">
                 { products && products.map(product => {
-                    return <ProductCard logo={product.image} title={product.title} id={product.id} key={product.id} price={product.price}/>
+                    return <ProductCard product={product} key={product.id}/>
                 })}
             </CardContainer>
         </section>

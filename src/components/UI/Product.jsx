@@ -1,26 +1,31 @@
-import {useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AddToCartBtn } from './Buttons';
-import Chart from 'chart.js/auto';
-import '../styles/product.css'
+// import Chart from 'chart.js/auto';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
-export const Product = (props) => {
+import '../styles/product.css'
+import cart from '../../data/cartContents';
+
+export const Product = ({ product, loading }) => {
     const [quantity, setQuantity] = useState(1)
     const [btndisabled, setBtndisabled] = useState(true)
+
     return (
-        <main className="product-pane row">
+        <>
             <div className="col-4 img-container">
-                <img src={props.logo} alt={props.name} className="img-thumbnail" />
+                <img src={product.image} alt={product.title} className="img-thumbnail" />
             </div>
+
             <div className="col-7 product-info">
-                <h2 className="product-name"> {props.name}</h2>
-                <h3>price: <span className="price-tag">₹{props.price}</span></h3>
-                <p className="product-description">{props.desc}</p>
-                <Rating rating={[1, 2, 3, 4, 5]} />
+                <h2 className="product-name"> {product.title}</h2>
+                <h3>price: <span className="price-tag">₹{product.price}</span></h3>
+                <p className="product-description">{product.description}</p>
+                <span className={(product.stock > 0) ? "badge bg-success" : "badge bg-danger"} >{`${product.stock} left in stock`}</span>
+                <Rating rating={product.rating} />
                 <div>
                     <button onClick={
                         () => {
                             if (quantity === 2) {
-                                // props.className += "disabled";
                                 setBtndisabled(true)
                             }
                             setQuantity(quantity - 1)
@@ -29,71 +34,51 @@ export const Product = (props) => {
                         className="btn btn-outline-secondary" disabled={btndisabled}
                     >-</button>
                     <span>   {quantity}   </span>
-                    <button onClick={() => {
-                        setQuantity(quantity + 1)
-                        setBtndisabled(false)
-                    }
+                    <button onClick={
+                        () => {
+                            setQuantity(quantity + 1)
+                            setBtndisabled(false)
+                        }
                     } className="btn btn-outline-secondary">+</button>
                 </div>
-                <AddToCartBtn />
-
+                <AddToCartBtn handleClick={() => cart.addToCart(product.id, quantity)} />
             </div>
-        </main>
+        </>
     );
 }
 
 const Rating = props => {
-    let ctx = useRef(null)
-    // const [ref, setRef] = useState(null)
-    // console.log(props.rating)
-    useEffect(() => {
-        let chart
-        const data = {
-            labels: ["5 ⭐", "4 ⭐", "3 ⭐", "2 ⭐", "1 ⭐"],
-            datasets: [{
-                data: props.rating,
-                fill: true,
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 205, 86, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                ],
-                borderColor: 'rgb(255, 99, 132)',
-            },]
-        };
-        // </block:setup>
+    const [data, setData] = useState(null)
 
-        // <block:config:0>
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-                indexAxis: 'y',
-                elements: {
-                    line: {
-                        borderWidth: 3
-                    }
-                },
-                scales: {
-                    x: { grid: { display: false } },
-                    y: { grid: { display: false } },
-                    title: {
-                        display: false
-                    }
-                },
-                plugins: {
-                    legend: { display: false }
-                }
-            },
-        };
-        chart = new Chart(ctx.current, config);
+    let n = Object.keys(props.rating)
+    let v = Object.values(props.rating)
+    const d = []
+
+    for (let i = 0; i < 5; i++) {
+        d.push({ name: n[i], val: v[i] })
+    }
+    useEffect(() => {
+        setData(d)
     }, [])
     return (
-        <div>
+        <>
             <h5 className="text-muted">Ratings</h5>
-            <canvas id="myChart" ref={ctx} />
-        </div>
+            <ResponsiveContainer width="100%" height="40%">
+                <BarChart width={80} height={30} data={data} layout="vertical"
+                    margin={{
+                        top: 5,
+                        right: 0,
+                        left: 0,
+                        bottom: 5,
+                    }}
+                    barGap={0}
+                >
+                    <YAxis dataKey="name" type="category" scale="band" tickLine={false} />
+                    <XAxis type="number" tickLine={false} axisLine={false} />
+                    <Bar dataKey="val" fill={"#87cefa"} >
+                    </Bar>
+                </BarChart>
+            </ResponsiveContainer>
+        </>
     );
 }

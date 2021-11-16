@@ -9,15 +9,31 @@ import { Profile } from './components/routes/Profile';
 import AdminPage from './components/UI/AdminPage';
 import UserList from './components/UI/UserList'
 import AdminProductList from './components/UI/AdminProductList'
+import {Cart} from './components/routes/Cart'
+import { Result } from './components/routes/SearchResults';
+import { useState } from 'react';
+import { useNavigate} from 'react-router'
+
 function App() {
+  const [query, setQuery] = useState()
+
+  let navigate = useNavigate()
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    navigate('/search')
+  };
+
   return (
     <div>
-      <Navbar />
+      <Navbar handleSubmit={handleSubmit} setQuery={setQuery} />
       <Routes>
         <Route exact path="/" element={<HomePane />} />
         <Route path="category/:name" element={<CategoryPage />} />
         <Route path="product/:id" element={<ProductPage />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="mycart" element={<Cart/>}/>
+        <Route path="search" element={<Result query={query}/>} />
         <Route
           path="*"
           element={

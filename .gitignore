@@ -24,3 +24,6 @@ yarn-error.log*
 
 # stashes
 *.stackdump
+
+#lock file
+package-lock.json

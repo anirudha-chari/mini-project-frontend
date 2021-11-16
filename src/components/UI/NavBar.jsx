@@ -5,14 +5,11 @@ import { navItems } from "./NavItems";
 import Dropdown from "./Dropdown";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
 import { FaAmbulance } from "react-icons/fa";
 
 
-export function Navbar() {
-
+export function Navbar(props) {
   const [dropdown, setDropdown] = useState(false);
-
   return (
     <nav className="navbar">
       <div className="nav-left">
@@ -22,8 +19,9 @@ export function Navbar() {
           <FaAmbulance />
         </Link>
 
-        <form className="d-flex nav-search">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <form className="d-flex nav-search" onSubmit={props.handleSubmit}>
+          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+          onChange={e => props.setQuery(e.target.value)}/>
           <button className="btn btn-outline-primary" type="submit">Search</button>
         </form>
       </div>

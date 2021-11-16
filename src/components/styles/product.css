@@ -15,7 +15,7 @@
 @media screen and (min-width:992px) {
     .sidebar {
         width: 34%;
-        height: 90vh;
+        height: 100vh;
         float: left;
         overflow: auto;
         -ms-overflow-style: none;
@@ -26,7 +26,8 @@
     }
     .product-pane {
         width: 64%;
-        height: 80vh;
+        height: fit-content;
+        /* height: 85vh; */
         float: left;
     }
 }
@@ -35,8 +36,11 @@
     display: table;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:600px) {
     .img-container {
         width: 100%;
+    }
+    .product-info {
+        width: 95%;
     }
 }
