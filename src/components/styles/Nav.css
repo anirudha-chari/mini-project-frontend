@@ -39,3 +39,15 @@
 .nav-item a:hover {
     background: rgb(0, 212, 212);
   }
+
+@media screen and (min-width:600px) {
+    .navbar {
+        position: sticky;
+        top: 0;
+    }
+}
+@media screen and (max-width:479px) {
+    .nav-search {
+        display: block;
+    }
+}
