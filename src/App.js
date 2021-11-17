@@ -12,6 +12,8 @@ import AdminProductList from './components/UI/AdminProductList'
 
 import AdminAddProduct from './components/UI/AdminAddProduct';
 import AdminEditProduct from './components/UI/AdminEditProduct';
+import ShoppingCart from "./components/routes/ShoppingCart";
+import OrderConfirmation from "./components/routes/OrderConfirmation";
 
 
 import { Cart } from './components/routes/Cart'
@@ -48,6 +50,8 @@ function App() {
         <Route path="/adminviewproducts" element={<AdminProductList />}></Route>
         <Route path="/admineditproduct" element={<AdminEditProduct />}></Route>
         <Route path="/adminaddproduct" element={<AdminAddProduct />} />
+        <Route path="/user/:userId/cart" element={<ShoppingCart/>}/>
+        <Route path="/order-confirm" element={<OrderConfirmation/>}/>
         <Route
           path="*"
           element={
