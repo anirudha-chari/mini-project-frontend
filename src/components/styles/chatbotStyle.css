@@ -1,0 +1,81 @@
+.bot {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: blue;
+}
+
+.button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: chartreuse;
+}
+/*
+.button:hover + .popup {
+    display: block;
+    width: 180px;
+    height: 55px;
+    position: absolute;
+    bottom: 15px;
+    right: 70px;
+    background-color: brown;
+}
+
+.popup-text {
+    text-align: center;
+}
+*/
+.chat-container {
+    width: 300px;
+    height: 400px;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: gray;
+}
+
+.chat-header {
+    width: 300px;
+    height: 55px;
+    position: absolute;
+    background-color: orange;
+}
+
+.header-text {
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.chat-body {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 55px;
+    overflow: auto;
+    background-color: lightgreen;
+}
+
+.chat-input {
+    width: 300px;
+    height: 45px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.input {
+    width: 255px;
+    height: 45px;
+    padding-left: 10px;
+}
+
+.msg-button {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    right: 0px;
+    background-color: lightblue;
+}
