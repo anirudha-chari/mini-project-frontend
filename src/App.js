@@ -10,14 +10,20 @@ import AdminPage from './components/UI/AdminPage';
 import UserList from './components/UI/UserList'
 import AdminProductList from './components/UI/AdminProductList'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import AdminAddProduct from './components/UI/AdminAddProduct';
 import AdminEditProduct from './components/UI/AdminEditProduct';
 =======
+=======
+>>>>>>> 64fb87436d829d21d67dae7dd7b7691c0ae0e81f
 import {Cart} from './components/routes/Cart'
 import { Result } from './components/routes/SearchResults';
 import { useState } from 'react';
 import { useNavigate} from 'react-router'
 
+<<<<<<< HEAD
+>>>>>>> 64fb87436d829d21d67dae7dd7b7691c0ae0e81f
+=======
 >>>>>>> 64fb87436d829d21d67dae7dd7b7691c0ae0e81f
 function App() {
   const [query, setQuery] = useState()
