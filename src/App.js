@@ -9,13 +9,15 @@ import { Profile } from './components/routes/Profile';
 import AdminPage from './components/UI/AdminPage';
 import UserList from './components/UI/UserList'
 import AdminProductList from './components/UI/AdminProductList'
-import {Cart} from './components/routes/Cart'
+import { Cart } from './components/routes/Cart'
 import { Result } from './components/routes/SearchResults';
 import { useState } from 'react';
-import { useNavigate} from 'react-router'
+import { useNavigate } from 'react-router'
+import { AllProducts } from './components/routes/AllProducts';
 
 function App() {
   const [query, setQuery] = useState()
+  const [loggedin, setLoggedin] = useState(false)
 
   let navigate = useNavigate()
 
@@ -26,14 +28,18 @@ function App() {
 
   return (
     <div>
-      <Navbar handleSubmit={handleSubmit} setQuery={setQuery} />
+      <Navbar handleSubmit={handleSubmit} setQuery={setQuery} loggedin={loggedin} />
       <Routes>
         <Route exact path="/" element={<HomePane />} />
+        <Route exact path="products" element={<AllProducts />} />
         <Route path="category/:name" element={<CategoryPage />} />
         <Route path="product/:id" element={<ProductPage />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="mycart" element={<Cart/>}/>
-        <Route path="search" element={<Result query={query}/>} />
+        <Route path="mycart" element={<Cart />} />
+        <Route path="search" element={<Result query={query} />} />
+        <Route path="admin" element={<AdminPage />} />
+        <Route path="adminviewusers" element={<UserList />} />
+        <Route path="/adminviewproducts" element={<AdminProductList />}></Route>
         <Route
           path="*"
           element={
@@ -42,12 +48,9 @@ function App() {
             </main>
           }
         />
-     
-       
-         
-        <Route path="admin" element={<AdminPage/>}/>
-        <Route path="adminviewusers"element={<UserList/>}/>
-        <Route path="/adminviewproducts" element={<AdminProductList/>}></Route>
+
+
+
       </Routes>
     </div>
   );

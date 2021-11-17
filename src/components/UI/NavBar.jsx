@@ -17,7 +17,12 @@ export function Navbar(props) {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <form className="d-flex" onSubmit={props.handleSubmit}>
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            onChange={e => props.setQuery(e.target.value)} />
+                        <button className="btn btn-outline-light me-2" type="submit">Search</button>
+                    </form>
+                    <ul className="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
                         <li className="nav-item dropdown">
                             <Link to="" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Health Concerns
@@ -63,11 +68,6 @@ export function Navbar(props) {
                             </ul>
                         </li>
                     </ul>
-                    <form className="d-flex" onSubmit={props.handleSubmit}>
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            onChange={e => props.setQuery(e.target.value)} />
-                        <button className="btn btn-outline-light me-2" type="submit">Search</button>
-                    </form>
                     {
                         !props.loggedin && <Link to="/login" className="d-flex" >
                             <button className="btn btn-primary" type="submit">Login</button>
