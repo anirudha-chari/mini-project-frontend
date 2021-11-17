@@ -1,50 +1,41 @@
 export const salesData = [
     {
-      month: 'January',
+      category: 'Diabetic Care',
       sales: 4000,
     
     },
     {
-      month: 'February',
+      category: 'Abdomen Care',
       sales: 3000,
    
     },
     {
-      month: 'March',
+      category: ' Immunity boosters',
       sales: 2000,
    
     },
     {
-      month: 'April',
+      category: 'Skincare',
       sales: 2780,
    
     },
    
     {
-      month: 'May',
+      category: 'Haircare',
       sales: 4000,
    
     },
     {
-      month: 'June',
+      category: 'Oralcare',
       sales: 3000,
     
     },
     {
-      month: 'July',
+      category: 'sanitizers',
       sales: 2000,
      
     },
-    {
-      month: 'August',
-      sales: 2390,
 
-    },
-    {
-      month: 'September',
-      sales: 3490,
-     
-    },
   ];
  
 

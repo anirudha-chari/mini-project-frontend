@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/card.css'
 import { AddToCartBtn } from "./Buttons"
 import { Link } from "react-router-dom"
+import cart from "../../data/cartContents"
 
 
 export const CardContainer = (props) => {
@@ -20,27 +21,27 @@ export const CardContainer = (props) => {
     )
 }
 
-export const ProductCard = (props) => {
-    const productId = props.id
+export const ProductCard = React.memo(({product}) => {
+    const productId = product.id
     return (
-        <Link className="card" to={`/product/${productId}`}>
-            <img src={props.logo} className="card-img-top img-thumbnail" alt={props.title}  style={{width:"208px", height:"208px", objectFit:"contain"}}/>
-            <div className="card-body">
-                <h5 className="card-title" style={{height:"72px", overflow:"hidden"}}>{props.title}</h5>
-                <p className="card-text">MRP <span className="price-tag">₹{props.price}</span></p>
-                <AddToCartBtn />
-            </div>
-        </Link>
-    )
-}
+        <div className="card" style={{padding:"10px"}}>
 
-export const CategoryCard = (props) => {
+            <Link to={`/product/${productId}`} style={{textDecoration:"none"}}>
+                <img src={product.image} className="card-img-top" alt={product.title} style={{ width: "208px", height: "208px", objectFit: "contain" }} />
+                <div className="card-body">
+                    <h5 className="card-title" style={{ height: "72px", overflow: "hidden" }}>{product.title}</h5>
+                    <p className="card-text" >MRP <span className="price-tag" style={{fontFamily:"monospace"}}>₹{product.price}</span></p>
+                </div>
+            </Link>
+            <AddToCartBtn handleClick={() =>cart.addToCart(product.id, 1)} />
+        </div>
+    )
+})
+
+export const CategoryCard = React.memo(({title}) => {
     return (
-        <Link className="card categorycard" title={props.title} to={`/category/${props.title}`} style={{ height: "3rem" }}>
-            {props.image && <img src={props.image} alt={props.title} className="card-img" />}
-            {/* <div className="card-body"> */}
-            <p className="card-text">{props.title}</p>
-            {/* </div> */}
+        <Link className="card categorycard" title={title} to={`/category/${title}`} style={{ height: "3rem" }}>
+            <p className="card-text">{title}</p>
         </Link>
     )
-}
+})
