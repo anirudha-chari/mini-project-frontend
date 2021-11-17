@@ -1,6 +1,6 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import { TextField } from "@mui/material";
-import React, {useEffect,useState}from "react";
+import React, { useEffect, useState } from "react";
 import AdminSidebar from "./AdminSidebar";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,179 +8,97 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import "../styles/adminpage.css"
-// import React from 'react'
 import "../styles/adminaddproduct.css";
-// import { Axios } from "axios";
-import axios from "axios";
-const useStyle = makeStyles(theme=>({
-    root:{
-        '& .MuiFormControl-root':{
-            width:'80%',
-            // margin:theme.spacing(1)
-            margin:theme.spacing(1)
-        }
+import 'bootstrap'
 
-    }
-}))
-// const intialValues ={
-//     title:'',
-//     category:'',
-//     description:'',
-//     price:'',
-//     image:'',
-//     stock:''
-// }
 function AdminAddProduct() {
-
-    const intialValues ={
-        title:'',
-        category:'',
-        description:'',
-        price:'',
-        image:'',
-        stock:''
-    }
+    var formData = new FormData()
     const url = "https://6194599f9b1e780017ca1f28.mockapi.io/addproduct"
-    const [age, setAge] = React.useState('');
 
-    const handleChange = (event) => {
-      setAge(event.target.value);
-    };
+    const handleTitleChange = e => {
+        formData.append( "name", e.target.value )
+        console.log(e.target.value)
+    }
+    const handleCategoryChange = e => {
+        formData.append("category", e.target.value)
+        console.log(e.target.value)
+    }
+    const handleStockChange = e => {
+        formData.append("stock",e.target.value)
+        console.log(e.target.value)
+    }
+    const handleDescChange = e => {
+        formData.append("description", e.target.value)
+        console.log(e.target.value)
+    }
+    const handleFileChange = e => {
+        formData.append("image", e.target.files[0])
+        console.log(e.target.value)
+    }
+    const handlePriceRsChange = e => {
+        formData.append("price", e.target.value)
+        console.log(e.target.value)
+    }
+    const handlePricePaiseChange = e => {
+        formData.append("price", e.target.value)
+        console.log(e.target.value)
+    }
 
-    const[values,setValues] =useState(intialValues);
-     const classes = useStyle();
- 
-     const handleInputChange =e=>{
-      const {name,value} = e.target
-      setValues({
-          [name]:value
-      })
-     }
-
-
-     function submit(e){
-         e.preventDefault();
-         axios.post(url,{
-            title:values.title,
-            description:values.description,
-            price:values.price,
-            stock:values.stock
-           // image:values.image,
-            //category:values.category
+    function handleSubmit(e) {
+        e.preventDefault();
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
             })
-            .then(res=>{
-                console.log(res.values)
-            })
-     }
-     function handle(e){
-         const newdata={...values}
-         newdata[e.target.id]=e.target.value
-         setValues(newdata)
-         console.log(newdata)
-     }
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
     return (
-        <div className="container2" >
-              <AdminSidebar/>
+        <div className="container row mt-2" >
+            <AdminSidebar />
+            <div className="col-7 container">
+                <form >
+                    <div className="mb-3">
+                        <label htmlFor="title" className="form-label">Title</label>
+                        <input type="text" className="form-control" id="title" aria-describedby="emailHelp" onChange={(e)=>handleTitleChange(e)} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="scategory" className="form-label">Category</label>
+                        <select className="form-select" aria-label="category" defaultValue={null} id="category" onChange={(e)=>handleCategoryChange(e)}>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="description" className="form-label">Description</label>
+                        <textarea className="form-control" id="description" rows="3" onChange={(e)=>handleDescChange(e)}></textarea>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="formFile" className="form-label">Upload Image</label>
+                        <input className="form-control" type="file" id="formFile" onChange={(e)=>handleFileChange(e)}/>
+                    </div>
+                    <div className="mb-3 col-3">
+                        <label htmlFor="stock" className="form-label">Stock</label>
+                        <input type="number" className="form-control" id="stock" onChange={(e)=>handleStockChange(e)} />
+                    </div>
+                    <div className="mb-3 col-3">
+                        <label htmlFor="stock" className="form-label">price</label>
+                        <input type="number" className="form-control" id="stock" onChange={(e)=>handlePriceRsChange(e)} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
 
-              <div className="main">
-
-
-              <form action="" className={classes.root} onSubmit={(e)=>submit(e)}>
-              {/* <form action="" className="formfields"> */}
-               <Grid container>
-               <Grid item xs={6}>
-                <TextField
-                id="title"
-                variant="outlined"
-                label="Title"
-                value={values.title}
-                name="Title"
-                onChange = {(e)=>handle(e)}
-                InputLabelProps={{
-                    shrink: true,
-                    }}
-                />
-                <TextField
-                id="description"
-                variant="outlined"
-                label="Description"
-                value={values.description}
-                name="Description"
-                onChange = {(e)=>handle(e)}
-                InputLabelProps={{
-                    shrink: true,
-                    }}
-                />
-            </Grid>
-            <Grid item xs={6}>
-            <InputLabel id="demo-simple-select-autowidth-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={age}
-          onChange={handleChange}
-          autoWidth
-          label="Age"
-        >
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
-          <MenuItem value={10}>Twenty</MenuItem>
-          <MenuItem value={21}>Twenty one</MenuItem>
-          <MenuItem value={22}>Twenty one and a half</MenuItem>
-        </Select>
-       </Grid>
-            <Grid item xs={6}>
-        
-            {/* <input
-               
-                 id="upload-photo"
-                 name="upload-photo"
-                 type="file"
-             /> */}
-            <TextField
-                id="image"
-                variant="outlined"
-                label="Upload Photo"
-                name="upload-photo" 
-                type="file" 
-                value={values.image}
-                onChange = {(e)=>handle(e)}
-                InputLabelProps={{
-                    shrink: true,
-                    }}
-                />
-            <TextField
-                id="stock"
-                variant="outlined"
-                label="Stock"
-                type="number"
-                value={values.stock}
-                onChange = {(e)=>handle(e)}
-                InputLabelProps={{
-                     shrink: true,
-                     }}
-                 />
-             <TextField
-                id="price"
-                label="Price"
-                type="number"
-                value={values.price}
-                onChange = {(e)=>handle(e)}
-                InputLabelProps={{
-                     shrink: true,
-                     }}
-                 />
-            </Grid>
-            <Grid item xs={12}>
-            <Button variant="contained" type="submit">Submit</Button>
-            
-            </Grid>
-        </Grid>
-
-       </form>
-       </div>
-       </div>
+            </div>
+        </div>
     )
 }
 
