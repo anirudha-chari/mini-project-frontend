@@ -1,5 +1,4 @@
 import React from "react"
-import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/card.css'
 import { AddToCartBtn } from "./Buttons"
 import { Link } from "react-router-dom"
@@ -11,7 +10,7 @@ export const CardContainer = (props) => {
         <section className="container container-outer">
             <div className="section-title-container">
                 <h3 className="section-title">{props.title}</h3>
-                <button className="btn btn-outline-primary view-all-btn">view all</button>
+                {/* <button className="btn btn-outline-primary view-all-btn">view all</button> */}
             </div>
             {/* <hr /> */}
             <div className="card-container vertical-scroll">

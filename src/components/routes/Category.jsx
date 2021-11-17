@@ -131,7 +131,7 @@ export const CategoryPage = props => {
                     </div>
                 </div>
             </aside>
-            <div className="col-10 offset-md-2" >
+            <div className="col-10 mt-2" >
                 {/* <div className="row" style={{ marginTop: "10px" }}> */}
                 <p style={{ display: "inline" }}> Sort by - </p>
                 <div className="form-check form-check-inline">

@@ -7,6 +7,6 @@
 }
 @media screen and (min-width: 890px) {
     .filters {
-        position: fixed;
+        /* position: fixed; */
     }
 }

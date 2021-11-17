@@ -3,7 +3,6 @@ import { ProductCard } from '../UI/Card'
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../../constants/URL';
-import '../styles/product.css'
 
 export const ProductPage = props => {
     const params = useParams()
