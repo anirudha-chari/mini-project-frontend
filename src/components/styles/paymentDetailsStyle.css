@@ -1,0 +1,30 @@
+.payment-details-header {
+    font-size: 4vmin;
+    font-weight: bold;
+    padding: 2vmin;
+}
+
+.select-payment-text {
+    height: auto;
+    font-size: 3vmin;
+    font-weight: bold;
+    border: 1px solid black;
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+    padding-left: 2vmin;
+}
+
+.payment-entry {
+    height: auto;
+    font-size: 2.5vmin;
+    font-weight: bold;
+    padding-top: 1vmin;
+    padding-left: 2vmin;
+    padding-bottom: 1vmin;
+    padding-right: 1vmin;
+    border: 1px solid black;
+}
+
+input[type="radio"] {
+    margin-right: 1vmin;
+}

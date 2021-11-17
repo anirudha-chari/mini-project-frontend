@@ -1,0 +1,57 @@
+.product {
+    border: 2px solid black;
+    border-radius: 2vmin;
+    margin-bottom: 2vmin;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.image-container {
+    float: left;
+}
+
+.image {
+    height: 25vmin;
+    width: 30vmin;
+}
+
+.description {
+    height: 5vmin;
+    font-size: 3vmin;
+    font-weight: bold;
+    padding-top: 1vmin;
+    padding-left: 2vmin;
+    overflow: hidden;
+}
+
+.price {
+    height: 4vmin;
+    font-size: 2.5vmin;
+    font-weight: bold;
+    padding-top: 1vmin;
+    padding-left: 2vmin;
+    overflow: hidden;
+}
+
+.quantity-selector {
+    padding-top: 2vmin;
+    padding-left: 2vmin;
+    overflow: hidden;
+}
+
+.quantity {
+    width: 30px;
+    text-align: center;
+}
+
+.button-list {
+    padding-top: 2vmin;
+}
+
+.buy-btn {
+    margin-left: 2vmin;
+}
+
+.remove-btn {
+    margin-left: 1vmin;
+}
