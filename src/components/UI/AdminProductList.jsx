@@ -1,17 +1,29 @@
-import React from 'react'
+import {React,Component} from 'react'
 import "../styles/adminproductlist.css"
 // import "../styles/userlist.css"
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import {productRows} from "../../dummyData.js";
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import { width } from '@mui/system';
 import { Link } from "react-router-dom"; 
 import AdminSidebar from './AdminSidebar';
 
+
 function ProductList() {
 
-    const[data,setData]= useState(productRows)
+
+// class ProductList extends Component{
+    const[data,setData]= useState([]);
+
+    const getData = async()=>{
+      const response = await fetch('https://fakestoreapi.com/products');
+      setData(await response.json());
+    }
+
+    useEffect(()=>{
+      getData();
+    },[]);
 
     const handleDelete =(id)=>{
         setData(data.filter((item)=>item.id!==id));
@@ -19,15 +31,19 @@ function ProductList() {
       }
 
       const columns = [
-        { field: 'id', headerName: 'Product ID', width: 150 },
-        { field: 'productName', headerName: 'Product Name', width: 180 },
-        { field: 'stock', headerName: 'Stock', width: 160 },
-        { field:'price', headerName:'Price',width:150},
-        {field:'action', headerName:'Action', width:150,
+        { field: 'id', headerName: 'ID', width: 100 },
+        { field: 'Image', headerName: 'image', width: 150 },
+        { field: 'title', headerName: 'Title', width: 120 },
+        { field: 'description', headerName: 'description', width: 150 },
+        { field:'price', headerName:'Price',width:120},
+        {field:'category', headerName:'category', width:130},
+        {field:'stock', headerName:'stock', width:130},
+        {field:'action', headerName:'Action', width:140,
            renderCell:(params)=>{
              return(
                <>
-               <Link to={"/editproduct/"+params.row.id}>
+               {/* <Link to={"/editproduct/"+params.row.id}> */}
+               <Link to={"/admineditproduct"}>
                    <button className="productListEdit">Edit</button>
                </Link>
           
@@ -47,7 +63,12 @@ function ProductList() {
     return (
       <div className="container2">
         <AdminSidebar/>
+        
         <div className="productlist">
+          <Link to={"/adminaddproduct"}>
+          <button className="addproduct" >Add New Product</button>
+          </Link>
+          
             <DataGrid
              disableSelectionOnClick
         rows={data}

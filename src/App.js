@@ -9,11 +9,17 @@ import { Profile } from './components/routes/Profile';
 import AdminPage from './components/UI/AdminPage';
 import UserList from './components/UI/UserList'
 import AdminProductList from './components/UI/AdminProductList'
+
+import AdminAddProduct from './components/UI/AdminAddProduct';
+import AdminEditProduct from './components/UI/AdminEditProduct';
+
+
 import { Cart } from './components/routes/Cart'
 import { Result } from './components/routes/SearchResults';
 import { useState } from 'react';
 import { useNavigate } from 'react-router'
 import { AllProducts } from './components/routes/AllProducts';
+
 
 function App() {
   const [query, setQuery] = useState()
@@ -40,6 +46,8 @@ function App() {
         <Route path="admin" element={<AdminPage />} />
         <Route path="adminviewusers" element={<UserList />} />
         <Route path="/adminviewproducts" element={<AdminProductList />}></Route>
+        <Route path="/admineditproduct" element={<AdminEditProduct />}></Route>
+        <Route path="/adminaddproduct" element={<AdminAddProduct />} />
         <Route
           path="*"
           element={
@@ -47,11 +55,7 @@ function App() {
               <p>There's nothing here!</p>
             </main>
           }
-        />
-
-
-
-      </Routes>
+        />      </Routes>
     </div>
   );
 }

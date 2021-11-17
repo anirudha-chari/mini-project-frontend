@@ -19,11 +19,11 @@ function AdminSidebar() {
                     <LineStyleIcon/> Home
                     </Link>
                   </li>
-                  <li className="sidebarListItem">
+                  {/* <li className="sidebarListItem">
                     <Link to='/adminviewusers'> <LineStyleIcon/> Users
                     </Link>
                     
-                  </li>
+                  </li> */}
                   <li className="sidebarListItem">
                    <Link to='/adminviewproducts'> <LineStyleIcon/> Products
                    </Link>

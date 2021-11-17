@@ -42,7 +42,8 @@ function AdminPage() {
     </div> */}
 
     <div className="main">
-            <Chart data={salesData} title="Sales Analytics" grid dataKey="sales"/>
+            {/* <Chart data={salesData} title="Sales Analytics" grid dataKey="sales"/> */}
+            <Chart  title="Sales Analytics" grid dataKey="sales"/>
         </div>
    
 </div>
