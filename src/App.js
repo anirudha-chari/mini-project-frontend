@@ -22,9 +22,9 @@ import SignUp from './pages/SignUp';
 import { AuthProvider } from './context/AuthContext';
 import { PrivateUserRoute, PrivateAdminRoute } from './privateRoute';
 import Chatbot from "./components/UI/Chatbot";
-import { getAuth, onAuthStateChanged } from "firebase/auth"
+// import { getAuth, onAuthStateChanged } from "firebase/auth"
 import UsersCartAPI from './data/UsersCartAPI'
-import axios from 'axios';
+// import axios from 'axios';
 
 function App() {
   // auth()

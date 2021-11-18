@@ -10,7 +10,7 @@ export default function SignUp() {
     const { signUp } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const [adminSignUp, setAdminSignUp] = useState(false)
+    // const [adminSignUp, setAdminSignUp] = useState(false)
     const navigate = useNavigate()
 
 
