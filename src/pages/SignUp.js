@@ -11,6 +11,7 @@ export default function SignUp() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     // const [adminSignUp, setAdminSignUp] = useState(false)
+
     const navigate = useNavigate()
 
 

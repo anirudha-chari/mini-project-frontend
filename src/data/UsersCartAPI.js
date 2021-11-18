@@ -1,3 +1,5 @@
+import {BASE_URL} from "../constants/URL";
+
 const UsersCartAPI = {
     initialSetup : function() {
         sessionStorage.usersCartData = JSON.stringify({})
@@ -61,7 +63,7 @@ const UsersCartAPI = {
             "id": productId,
             "quantity": quantity
         }
-        await fetch("")
+        await fetch(BASE_URL + `/products/${userId}`)
             .then(response => response.json())
             .then(json => {
                 productData["stock"] = json["stock"]
@@ -80,7 +82,7 @@ const UsersCartAPI = {
             "id": String(productId),
             "quantity": quantity
         }
-        fetch("", {
+        fetch(BASE_URL + "/products/checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
