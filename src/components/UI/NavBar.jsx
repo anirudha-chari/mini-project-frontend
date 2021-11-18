@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { FaAmbulance } from "react-icons/fa";
+import { useAuth } from "../../context/AuthContext";
 import 'bootstrap'
 
 
 export function Navbar(props) {
+
+    const { isAdmin, isLoggedin, setIsLoggedin, logOut } = useAuth()
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
@@ -68,9 +72,27 @@ export function Navbar(props) {
                             </ul>
                         </li>
                     </ul>
+                    {!isLoggedin &&
+                    <Link to="/login" className="d-flex mb-2" >
+                         <button className="btn btn-primary" type="submit">Login</button>
+                    </Link>
+                    }
+
+
+                    {isLoggedin && <div className="dropdown mb-2">
+                        <button className="btn btn-secondary dropdown-toggle me-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><Link className="dropdown-item" to="/" onClick={() => { logOut(); setIsLoggedin(false) }}>Log out</Link></li>
+                            <li><Link className="dropdown-item" to="/">Cart</Link></li>
+                            {/* <li><Link class="dropdown-item" href="#">Something else here</Link></li> */}
+                        </ul>
+                    </div>
+                    }
                     {
-                        !props.loggedin && <Link to="/login" className="d-flex" >
-                            <button className="btn btn-primary" type="submit">Login</button>
+                        isAdmin && isLoggedin && <Link to="/admin" className="d-flex mb-2" >
+                            <button className="btn btn-primary" type="button">Manage</button>
                         </Link>
                     }
                 </div>

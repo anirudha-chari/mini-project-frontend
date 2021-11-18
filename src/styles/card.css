@@ -75,6 +75,7 @@
     grid-auto-flow: column;
     overflow-y: auto;
     box-sizing: content-box;
+    scrollbar-width: none;
 }
 .vertical-scroll::-webkit-scrollbar {
     display: none;
