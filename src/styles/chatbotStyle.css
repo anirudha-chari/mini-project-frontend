@@ -24,6 +24,7 @@
     border: 2px solid black;
     border-radius: 10px;
     background-color: whitesmoke;
+    z-index: 2;
 }
 
 .chat-container::after {
