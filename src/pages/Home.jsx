@@ -12,7 +12,7 @@ export const HomePane = props => {
         .then(json => setCategories(json)), [])
 
     useEffect(() => {
-        fetch(BASE_URL + '/products')
+        fetch(BASE_URL + '/products/')
             .then(res => res.json())
             .then(json => setProducts(json.slice(0, 10)))
     }, [])

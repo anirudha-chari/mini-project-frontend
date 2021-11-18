@@ -1,11 +1,9 @@
-import {React,Component} from 'react'
+import {React} from 'react'
 import "../styles/adminproductlist.css"
 // import "../styles/userlist.css"
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import {productRows} from "../data/dummyData";
 import {useState,useEffect} from "react";
-import { width } from '@mui/system';
 import { Link } from "react-router-dom"; 
 import AdminSidebar from '../components/UI/AdminSidebar';
 import { AuthProvider } from '../context/AuthContext';

@@ -1,11 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { FaAmbulance } from "react-icons/fa";
+import { useAuth } from "../../context/AuthContext";
 import 'bootstrap'
+import { getAuth } from "@firebase/auth";
 
 
 export function Navbar(props) {
+
+    const { isAdmin, isLoggedin, setIsLoggedin, logOut } = useAuth()
+    function handleSubmit() {
+        logOut()
+        setIsLoggedin(false)
+    }
+    
+    let user = "";
+    let auth = getAuth().currentUser
+    if(auth!=null){
+        user = getAuth().currentUser.email.split('@')[0]
+    }
+    // console.log(user);
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
@@ -13,7 +29,7 @@ export function Navbar(props) {
                     MEDICO
                     < FaAmbulance alt="" width="30" height="24" className="d-inline-block align-text-center" />
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -68,9 +84,27 @@ export function Navbar(props) {
                             </ul>
                         </li>
                     </ul>
+                    {!isLoggedin &&
+                    <Link to="/login" className="d-flex mb-2" >
+                         <button className="btn btn-primary" type="submit">Login</button>
+                    </Link>
+                    }
+
+
+                    {isLoggedin && <div className="dropdown mb-2">
+                        <button className="btn btn-secondary dropdown-toggle me-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><Link className="dropdown-item" to="/" onClick={()=> {handleSubmit()}}>Log out</Link></li>
+                            <li><Link className="dropdown-item" to={`/user/${user}/cart`}>Cart</Link></li>
+                            {/* <li><Link class="dropdown-item" href="#">Something else here</Link></li> */}
+                        </ul>
+                    </div>
+                    }
                     {
-                        !props.loggedin && <Link to="/login" className="d-flex" >
-                            <button className="btn btn-primary" type="submit">Login</button>
+                        isAdmin && isLoggedin && <Link to="/admin" className="d-flex mb-2" >
+                            <button className="btn btn-primary" type="button">Manage</button>
                         </Link>
                     }
                 </div>

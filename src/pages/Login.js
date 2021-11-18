@@ -1,73 +1,60 @@
-import React, {useState, useRef} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import React, { useRef, useState } from "react"
+import { Form, Button, Card, Alert } from "react-bootstrap"
+import { useAuth } from "../context/AuthContext"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login } = useAuth()
-    const [err, setErr] = useState('')
-    const [loading, setLoading] = useState(false)
-    const [adminSignUp, setAdminSignUp] = useState(false)
+    const { login, setIsLoggedin, setIsAdmin } = useAuth()
+    const [error, setError] = useState("")
+    // const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
-    async function LogInUser(password) {
+    async function handleSubmit(e) {
+        e.preventDefault()
+
         try {
-            setErr('')
-            setLoading(true)
+            setError("")
+            // setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
+            setIsLoggedin(true)
+            navigate("/")
         } catch {
-            setErr('Account Does not Exist')
+            setError("Failed to log in")
         }
-        setLoading(false)
-        navigate("/")
-    }
-    async function LogInAdmin(password) {
-        try {
-            setErr('')
-            setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-        } catch {
-            setErr('Account Does not Exist')
-        }
-        setLoading(false)
-        navigate('/')
+        
+        // setIsAdmin(true)
+        // setLoading(false)
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        (!adminSignUp && LogInUser(passwordRef.current.value)) || LogInAdmin(passwordRef.current.value)
-
-    }
     return (
         <>
-            <div className="card container mt-5 justify-content-center align-items-center" style={{ maxWidth: "400px" }}>
-                <div className='card-body'>
-                    <h2> Log In</h2>
-                    {err && <div class="alert alert-danger" role="alert">{err}</div>}
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email address</label>
-                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" ref={emailRef} />
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="password" className="form-label" >Password</label>
-                            <input type="password" className="form-control" id="password" ref={passwordRef} pattern=".{8,}" title="Password must be atleast 8 characters" />
-                        </div>
-                        <div className="mb-3 form-check">
-                            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                            <label class="form-check-label" htmlFor="exampleCheck1" onChange={() => { setAdminSignUp(true) }}>Login as admin</label>
-                        </div>
-
-                        <button disabled={loading} type="submit" className="btn btn-primary w-100">Sign Up</button>
-                    </form>
-                </div>
+            <Card>
+                <Card.Body>
+                    <h2 className="text-center mb-4">Log In</h2>
+                    {error && <Alert variant="danger">{error}</Alert>}
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group id="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" ref={emailRef} required />
+                        </Form.Group>
+                        <Form.Group id="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" ref={passwordRef} required />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Login as admin" onChange={()=>setIsAdmin(true)}/>
+                        </Form.Group>
+                        <Button className="w-100" type="submit">
+                            Log In
+                        </Button>
+                    </Form>
+                </Card.Body>
+            </Card>
+            <div className="w-100 text-center mt-2">
+                Need an account? <Link to="/signup">Sign Up</Link>
             </div>
-            <div className='w-100 mt-2 text-center'>
-                Need an account? <Link to="/signup">Sign UP</Link>
-            </div>
-
         </>
     )
 }

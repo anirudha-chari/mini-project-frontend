@@ -1,9 +1,9 @@
 import React, {createRef} from "react";
 import Chat from "./Chat";
-import "../styles/chatbotStyle.css";
+import "../../styles/chatbotStyle.css";
+import ChatbotAPI from "../../data/ChatbotAPI";
 
-const chatResponses = ["Hi"]
-const botResponses = ["Hi", "Hello"]
+const chatResponses = [{"message":"Hi! How may I help you?", "type":"bot"}]
 
 class Chatbot extends React.Component {
     constructor() {
@@ -22,9 +22,10 @@ class Chatbot extends React.Component {
     handleInput() {
         let inMsg = this.inputRef.current.value
         if(inMsg !== "") {
-            chatResponses.push(inMsg)
+            chatResponses.push({"message":inMsg, "type":"user"})
             this.inputRef.current.value = ""
-            chatResponses.push(botResponses[1])
+            let botResponse = ChatbotAPI.getBotResponse(inMsg)
+            chatResponses.push({"message":botResponse, "type":"bot"})
             this.setState({
                 messages : chatResponses
             })
