@@ -1,11 +1,11 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ProductList from "components/UIProductList";
-import AddressDetails from "components/UIAddressDetails";
-import PaymentDetails from "components/UIPaymentDetails";
-import PriceDetails from "components/UIPriceDetails";
-import UsersCartAPI from "../../data/UsersCartAPI"
+import ProductList from "../components/UI/ProductList";
+import AddressDetails from "../components/UI/AddressDetails";
+import PaymentDetails from "../components/UI/PaymentDetails";
+import PriceDetails from "../components/UI/PriceDetails";
+import UsersCartAPI from "../data/UsersCartAPI"
 
 function ShoppingCart() {
     const params = useParams() 

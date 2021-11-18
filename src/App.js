@@ -13,6 +13,8 @@ import AdminAddProduct from './pages/AdminAddProduct';
 import AdminEditProduct from './pages/AdminEditProduct';
 import { Cart } from './pages/Cart'
 import { Result } from './pages/SearchResults';
+import ShoppingCart from "./pages/ShoppingCart";
+import OrderConfirmation from "./pages/OrderConfirmation";
 import { useState } from 'react';
 import { useNavigate } from 'react-router'
 import { AllProducts } from './pages/AllProducts';
@@ -73,6 +75,8 @@ function App() {
         <Route path="adminaddproduct" element={<AdminAddProduct />} />
         <Route path="login" element={<Login/>}/> 
         <Route path="signup" element={<SignUp/>}/> 
+        <Route path="/user/:userId/cart" element={<ShoppingCart/>}/>
+        <Route path="/order-confirm" element={<OrderConfirmation/>}/>
         <Route
           path="*"
           element={

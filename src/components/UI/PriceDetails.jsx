@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/priceDetailsStyle.css";
+import "../../styles/priceDetailsStyle.css";
 import UsersCartAPI from "../../data/UsersCartAPI"
 
 function PriceDetails(props) {

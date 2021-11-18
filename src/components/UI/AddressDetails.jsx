@@ -1,5 +1,5 @@
 import React, {createRef} from "react";
-import "../styles/addressDetailsStyle.css";
+import "../../styles/addressDetailsStyle.css";
 import UsersCartAPI from "../../data/UsersCartAPI";
 
 function AddressDetails(props) {

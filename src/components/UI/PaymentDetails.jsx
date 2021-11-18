@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/paymentDetailsStyle.css";
+import "../../styles/paymentDetailsStyle.css";
 
 function PaymentDetails() {
     const paymentMethods = ["Credit Card/Debit Card", "NetBanking", "UPI", "Cash on Delivery"]
