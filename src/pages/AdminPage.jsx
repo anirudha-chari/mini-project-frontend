@@ -1,11 +1,7 @@
 import React from 'react'
-import LineStyleIcon from '@mui/icons-material/LineStyle';
-import AdminSidebar from './AdminSidebar';
-// import "./Sidebar.css"
+import AdminSidebar from '../components/UI/AdminSidebar';
 import "../styles/adminpage.css"
-import { Link } from "react-router-dom";
-import {salesData} from "../../dummyData";
-import Chart from './Chart'; 
+import Chart from '../components/UI/Chart'; 
 
 function AdminPage() {
     return (

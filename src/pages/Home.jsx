@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { CardContainer, CategoryCard, ProductCard } from "../UI/Card"
-import { BASE_URL } from '../../constants/URL'
+import { CardContainer, CategoryCard, ProductCard } from "../components/UI/Card"
+import { BASE_URL } from '../constants/URL'
 import { Link } from "react-router-dom"
 import 'bootstrap'
 

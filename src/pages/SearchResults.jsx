@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { BASE_URL } from "../../constants/URL"
-import { ProductCard } from "../UI/Card"
-import { NoResults } from "../UI/NoResults"
-import Pagination from "../UI/pagination"
+import { BASE_URL } from "../constants/URL"
+import { ProductCard } from "../components/UI/Card"
+import { NoResults } from "../components/UI/NoResults"
+import Pagination from "../components/UI/pagination"
 
 export const Result = props => {
     const [currentPage, setCurrentPage] = useState(1)

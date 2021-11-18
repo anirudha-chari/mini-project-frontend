@@ -3,7 +3,7 @@ import { AddToCartBtn } from './Buttons';
 // import Chart from 'chart.js/auto';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
-import '../styles/product.css'
+import '../../styles/product.css'
 import cart from '../../data/cartContents';
 
 export const Product = ({ product, loading }) => {

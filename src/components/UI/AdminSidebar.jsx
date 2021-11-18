@@ -1,7 +1,5 @@
 import React from 'react'
-import LineStyleIcon from '@mui/icons-material/LineStyle';
-// import "./Sidebar.css"
-import "../styles/adminpage.css"
+import "../../styles/adminpage.css"
 import 'bootstrap'
 import { Link } from "react-router-dom";
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 // import "./userlist.css"
-import "../styles/userlist.css"
+import "../../styles/userlist.css"
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import {userRows} from "../../dummyData.js";
+import {userRows} from "../../data/dummyData";
 import AdminSidebar from './AdminSidebar';
 
 export default function UserList() {

@@ -2,7 +2,7 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import { TextField } from "@mui/material";
 import React, {useEffect,useState}from "react";
-import AdminSidebar from "./AdminSidebar";
+import AdminSidebar from "../components/UI/AdminSidebar";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';

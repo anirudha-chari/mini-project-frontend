@@ -1,8 +1,8 @@
-import { Product } from '../UI/Product'
-import { ProductCard } from '../UI/Card'
+import { Product } from '../components/UI/Product'
+import { ProductCard } from '../components/UI/Card'
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
-import { BASE_URL } from '../../constants/URL';
+import { BASE_URL } from '../constants/URL';
 
 export const ProductPage = props => {
     const params = useParams()

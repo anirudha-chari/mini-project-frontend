@@ -1,8 +1,8 @@
 //replace this with actual implementation!!!!!!!!!!!!!!!!!!!!!
 import { useEffect, useState } from "react"
-import { BASE_URL } from "../../constants/URL"
-import cart from "../../data/cartContents"
-import { ProductCard } from "../UI/Card"
+import { BASE_URL } from "../constants/URL"
+import cart from "../data/cartContents"
+import { ProductCard } from "../components/UI/Card"
 
 export const Cart = props => {
     const [product, setProduct] = useState(null)

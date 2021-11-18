@@ -1,5 +1,5 @@
 import React from "react"
-import '../styles/card.css'
+import '../../styles/card.css'
 import { AddToCartBtn } from "./Buttons"
 import { Link } from "react-router-dom"
 import cart from "../../data/cartContents"
@@ -23,7 +23,7 @@ export const CardContainer = (props) => {
 export const ProductCard = React.memo(({product}) => {
     const productId = product.id
     return (
-        <div className="card" style={{padding:"10px"}}>
+        <div className="card viewcard" style={{padding:"10px"}}>
 
             <Link to={`/product/${productId}`} style={{textDecoration:"none"}}>
                 <img src={product.image} className="card-img-top" alt={product.title} style={{ width: "208px", height: "208px", objectFit: "contain" }} />
@@ -39,7 +39,7 @@ export const ProductCard = React.memo(({product}) => {
 
 export const CategoryCard = React.memo(({title}) => {
     return (
-        <Link className="card categorycard" title={title} to={`/category/${title}`} style={{ height: "3rem" }}>
+        <Link className="card categorycard viewcard" title={title} to={`/category/${title}`} style={{ height: "3rem" }}>
             <p className="card-text">{title}</p>
         </Link>
     )

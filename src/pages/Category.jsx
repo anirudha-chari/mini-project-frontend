@@ -1,10 +1,10 @@
-import { ProductCard } from "../UI/Card"
+import { ProductCard } from "../components/UI/Card"
 import '../styles/category.css'
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
-import { BASE_URL } from "../../constants/URL"
-import Pagination from "../UI/pagination"
-import {NoResults} from '../UI/NoResults'
+import { BASE_URL } from "../constants/URL"
+import Pagination from "../components/UI/pagination"
+import {NoResults} from '../components/UI/NoResults'
 
 export const CategoryPage = props => {
     const params = useParams()

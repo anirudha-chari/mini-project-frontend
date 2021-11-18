@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { BASE_URL } from "../../constants/URL"
-import { ProductCard } from "../UI/Card"
+import { BASE_URL } from "../constants/URL"
+import { ProductCard } from "../components/UI/Card"
 
 export const AllProducts = props => {
     const [products, setProducts] = useState(null)
