@@ -73,11 +73,18 @@ export class AdminAddProduct extends Component {
                                         value={this.state.category} onChange={this.changeCategoryHandler}/>
                              */}
                                    <select className="form-select" aria-label="category" defaultValue={null}  value={this.state.category} id="category" onChange={this.changeCategoryHandler} required>
-                                       <option value="1">One</option>
-                                       <option value="2">Two</option>
-                                       <option value="3">Three</option>
-                                       <option value="3">Four</option>
-                                       <option value="3">Five</option>
+                                       <option value="1">Cold and Cough</option>
+                                       <option value="2">Diabetic care</option>
+                                       <option value="3">Abdomen care</option>
+                                       <option value="4">Immunity boosters </option>
+                                       <option value="5">Skincare</option>
+                                       <option value="6">Haircare</option>
+                                       <option value="7">Oralcare</option>
+                                       <option value="8">Vitamins and Supllements</option>
+                                       <option value="9">Weight Management</option>
+                                       <option value="10">Health Monitering Devices</option>
+                                       <option value="11">Sanitizers</option>
+                                       <option value="3">Disinfectants</option>
                                     </select>
                                     </div>
                                     <div className="form-group">
