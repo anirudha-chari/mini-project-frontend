@@ -36,6 +36,7 @@ function CartProduct(props) {
                     if(UsersCartAPI.getAddress(props.userId) === "" || UsersCartAPI.getAddress(props.userId) === undefined) {
                         alert("You have not entered your address. Your order is confirmed for now. Our shipping team will get in touch with you to record your shipping details.")
                     }
+                    UsersCartAPI.updateProductDB(props.product.id, props.product.quantity)
                     UsersCartAPI.removeProduct(props.userId, props.product.id)
                 }}>BUY NOW</button>
             </Link>
