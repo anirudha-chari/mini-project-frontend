@@ -27,6 +27,7 @@ import UsersCartAPI from './data/UsersCartAPI'
 import axios from 'axios';
 
 function App() {
+  // auth()
   const [query, setQuery] = useState()
   let navigate = useNavigate()
   const handleSubmit = event => {

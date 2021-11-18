@@ -48,18 +48,18 @@ export const Product = ({ product, loading }) => {
 }
 
 const Rating = props => {
-    const [data, setData] = useState(null)
-
-    let n = Object.keys(props.rating)
-    let v = Object.values(props.rating)
-    const d = []
-
-    for (let i = 0; i < 5; i++) {
-        d.push({ name: n[i], val: v[i] })
-    }
-    useEffect(() => {
+    const [data, setData] = useState([{}])
+    
+    useEffect(()=>{
+        let d =[]
+        let n = Object.keys(props.rating)
+        let v = Object.values(props.rating)
+        for (let i = 0; i < 5; i++) {
+            d.push({ name: n[i], val: v[i] })
+        }
         setData(d)
-    }, [])
+    }, [props.rating])
+    
     return (
         <>
             <h5 className="text-muted">Ratings</h5>

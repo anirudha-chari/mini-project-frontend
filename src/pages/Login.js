@@ -6,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom"
 export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login, setIsLoggedin, setIsAdmin, currentUser } = useAuth()
+    const { login, setIsLoggedin, setIsAdmin } = useAuth()
     const [error, setError] = useState("")
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
     async function handleSubmit(e) {
@@ -16,17 +16,16 @@ export default function Login() {
 
         try {
             setError("")
-            setLoading(true)
+            // setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            console.log(currentUser)
+            setIsLoggedin(true)
             navigate("/")
         } catch {
             setError("Failed to log in")
         }
         
         // setIsAdmin(true)
-        setIsLoggedin(true)
-        setLoading(false)
+        // setLoading(false)
     }
 
     return (
@@ -47,7 +46,7 @@ export default function Login() {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Login as admin" onChange={()=>setIsAdmin(true)}/>
                         </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
+                        <Button className="w-100" type="submit">
                             Log In
                         </Button>
                     </Form>

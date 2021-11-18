@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaAmbulance } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
@@ -8,12 +8,10 @@ import 'bootstrap'
 export function Navbar(props) {
 
     const { isAdmin, isLoggedin, setIsLoggedin, logOut, currentUser } = useAuth()
-    function handleSubmit(e) {
-        e.preventDefault()
+    function handleSubmit() {
         logOut()
         setIsLoggedin(false)
     }
-
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,7 +20,7 @@ export function Navbar(props) {
                     MEDICO
                     < FaAmbulance alt="" width="30" height="24" className="d-inline-block align-text-center" />
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

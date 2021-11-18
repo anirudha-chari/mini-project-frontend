@@ -1,4 +1,4 @@
-import {React,Component} from 'react'
+import {React} from 'react'
 import "../styles/adminproductlist.css"
 // import "../styles/userlist.css"
 import { DataGrid } from '@mui/x-data-grid';
