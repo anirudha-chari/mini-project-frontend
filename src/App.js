@@ -22,40 +22,15 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { AuthProvider } from './context/AuthContext';
 
-function settoken(usertoken) {
-  sessionStorage.setItem('token', JSON.stringify(usertoken));
-}
-
-function gettoken() {
-  const tokenString = sessionStorage.getItem('token');
-  const usertoken = JSON.parse(tokenString);
-  return usertoken.token
-}
-
-
 function App() {
   const [query, setQuery] = useState()
   const [loggedin, setLoggedin] = useState(true)
 
   let navigate = useNavigate()
-
   const handleSubmit = event => {
     event.preventDefault()
     navigate('/search')
   };
-
-  // sessionStorage.getItem('token')?:gettoken()
-  /*
-    if (!token) {
-      return (
-        <>
-        <Navbar />
-        <UserLogin settoken={settoken}/>
-        </> 
-      )   
-    }
-  */
-
   return (
     <div>
       <AuthProvider>
