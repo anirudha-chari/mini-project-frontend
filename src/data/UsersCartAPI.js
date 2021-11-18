@@ -1,7 +1,6 @@
 const UsersCartAPI = {
-    usersData : require("./usersData.json"),
     initialSetup : function() {
-        sessionStorage.usersCartData = JSON.stringify(this.usersData)
+        sessionStorage.usersCartData = JSON.stringify({})
     },
     getCartDataForUser : function(userId) {
         let data = JSON.parse(sessionStorage.usersCartData)

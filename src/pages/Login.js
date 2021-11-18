@@ -24,7 +24,7 @@ export default function Login() {
             setError("Failed to log in")
         }
         
-        setIsAdmin(true)
+        // setIsAdmin(true)
         setIsLoggedin(true)
         setLoading(false)
     }

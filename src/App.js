@@ -19,9 +19,12 @@ import { useNavigate } from 'react-router'
 import { AllProducts } from './pages/AllProducts';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import {useEffect} from 'react'
+import { AuthProvider } from './context/AuthContext';
 import { PrivateUserRoute, PrivateAdminRoute } from './privateRoute';
+import Chatbot from "./components/UI/Chatbot";
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import UsersCartAPI from './data/UsersCartAPI'
+import axios from 'axios';
 
 function App() {
   const [query, setQuery] = useState()
@@ -31,10 +34,12 @@ function App() {
     navigate('/search')
   };
 
+  UsersCartAPI.initialSetup()
   return (
     <div>
       <AuthProvider>
-      <Navbar handleSubmit={handleSubmit} setQuery={setQuery} />
+      <Navbar handleSubmit={handleSubmit}setQuery={setQuery} />
+      <Chatbot/>
       <Routes>
         <Route exact path="/" element={<HomePane />} />
         <Route exact path="products" element={<AllProducts />} />

@@ -7,7 +7,7 @@ import 'bootstrap'
 
 export function Navbar(props) {
 
-    const { isAdmin, isLoggedin, setIsLoggedin, logOut } = useAuth()
+    const { isAdmin, isLoggedin, setIsLoggedin, logOut, currentUser } = useAuth()
 
 
     return (
@@ -85,7 +85,7 @@ export function Navbar(props) {
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><Link className="dropdown-item" to="/" onClick={() => { logOut(); setIsLoggedin(false) }}>Log out</Link></li>
-                            <li><Link className="dropdown-item" to="/">Cart</Link></li>
+                            <li><Link className="dropdown-item" to="/admin">Cart</Link></li>
                             {/* <li><Link class="dropdown-item" href="#">Something else here</Link></li> */}
                         </ul>
                     </div>
