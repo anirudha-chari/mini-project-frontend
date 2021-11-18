@@ -22,11 +22,12 @@ import SignUp from './pages/SignUp';
 import { AuthProvider } from './context/AuthContext';
 import { PrivateUserRoute, PrivateAdminRoute } from './privateRoute';
 import Chatbot from "./components/UI/Chatbot";
-import { getAuth, onAuthStateChanged } from "firebase/auth"
+// import { getAuth, onAuthStateChanged } from "firebase/auth"
 import UsersCartAPI from './data/UsersCartAPI'
-import axios from 'axios';
+// import axios from 'axios';
 
 function App() {
+  // auth()
   const [query, setQuery] = useState()
   let navigate = useNavigate()
   const handleSubmit = event => {
@@ -69,23 +70,23 @@ function App() {
   );
 }
 
-function auth() {
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      auth.currentUser.getIdToken(true).then((idtoken) => {
-        console.log(idtoken);
-        console.log("idtoken");
-        const api = " http://139.59.12.232:8082/admin/products";
-        axios.get(api, { headers: { "Authorization": `Bearer ${idtoken}` } })
-          .then((res) => console.log(res.data)).catch((err) =>
-            console.log(err)
-          );
-      });
-    } else {
-      console.log("logged out");
-    }
-  });
-}
+// function auth() {
+//   const auth = getAuth();
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       auth.currentUser.getIdToken(true).then((idtoken) => {
+//         console.log(idtoken);
+//         console.log("idtoken");
+//         const api = " http://139.59.12.232:8082/admin/products";
+//         axios.get(api, { headers: { "Authorization": `Bearer ${idtoken}` } })
+//           .then((res) => console.log(res.data)).catch((err) =>
+//             console.log(err)
+//           );
+//       });
+//     } else {
+//       console.log("logged out");
+//     }
+//   });
+// }
 
 export default App;

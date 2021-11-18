@@ -13,7 +13,7 @@ export const Product = ({ product, loading }) => {
     return (
         <>
             <div className="col-4 img-container">
-                <img src={product.image} alt={product.title} className="img-thumbnail" />
+                <img src={"http://139.59.12.232:8082/imgs/"+product.image} alt={product.title} className="img-thumbnail" />
             </div>
 
             <div className="col-7 product-info">
@@ -48,18 +48,18 @@ export const Product = ({ product, loading }) => {
 }
 
 const Rating = props => {
-    const [data, setData] = useState(null)
-
-    let n = Object.keys(props.rating)
-    let v = Object.values(props.rating)
-    const d = []
-
-    for (let i = 0; i < 5; i++) {
-        d.push({ name: n[i], val: v[i] })
-    }
-    useEffect(() => {
+    const [data, setData] = useState([{}])
+    
+    useEffect(()=>{
+        let d =[]
+        let n = Object.keys(props.rating)
+        let v = Object.values(props.rating)
+        for (let i = 0; i < 5; i++) {
+            d.push({ name: n[i], val: v[i] })
+        }
         setData(d)
-    }, [])
+    }, [props.rating])
+    
     return (
         <>
             <h5 className="text-muted">Ratings</h5>

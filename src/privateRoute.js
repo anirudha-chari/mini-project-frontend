@@ -11,5 +11,8 @@ export function PrivateAdminRoute({ children }) {
     // console.log(currentUser, isAdmin)
     return currentUser && isAdmin ? children : <Navigate to="/login"></Navigate>
 }
-
+export function PrivateloginRoute({ children }) {
+    const {currentUser, isLoggedin} = useAuth();
+    return (currentUser && !isLoggedin) ? children : <Navigate to="/"></Navigate>
+}
 // export const PrivateAdminRoute
