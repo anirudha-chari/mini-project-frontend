@@ -8,12 +8,12 @@ import {useState,useEffect} from "react";
 import { width } from '@mui/system';
 import { Link } from "react-router-dom"; 
 import AdminSidebar from '../components/UI/AdminSidebar';
+import { AuthProvider } from '../context/AuthContext';
+import { getAuth,onAuthStateChanged } from '@firebase/auth';
 import axios from 'axios';
 
 function ProductList() {
 
-
-// class ProductList extends Component{
     const[data,setData]= useState([]);
 
     // const getData = async()=>{
@@ -22,10 +22,23 @@ function ProductList() {
       
     // }
     const getData= async()=>{
-       axios.get('https://fakestoreapi.com/products').then((res)=>setData(res.data))
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          auth.currentUser.getIdToken(true).then((idtoken) => {
+            console.log(idtoken);
+            console.log("idtoken");
+            const api = " http://139.59.12.232:8082/admin/products";
+            axios.get(api).then((res)=>setData(res.data))
+ 
+          });
+        } else {
+          console.log("logged out");
+        }
+      });
+      // axios.get('https://fakestoreapi.com/products').then((res)=>setData(res.data))
      
-    }
-       
+    }      
     //   setData(await response.json());
    
     useEffect(()=>{

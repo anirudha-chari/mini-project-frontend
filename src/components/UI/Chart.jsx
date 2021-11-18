@@ -4,16 +4,34 @@ import "../../styles/chart.css"
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { BarChart,Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
+import { getAuth,onAuthStateChanged } from '@firebase/auth';
 
 function Chart({title,dataKey,grid}) {
     const[data2,setData]= useState([]);
+    
 
     // const getData = async()=>{
     //   const response = await fetch('https://6194599f9b1e780017ca1f28.mockapi.io/catchart');
     //   setData(await response.json());
     // }
       const getData= async()=>{
-        axios.get('https://6194599f9b1e780017ca1f28.mockapi.io/catchart').then((res)=>setData(res.data))
+        const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          auth.currentUser.getIdToken(true).then((idtoken) => {
+            console.log(idtoken);
+            console.log("idtoken");
+            const api = " http://139.59.12.232:8082/admin/products";
+            axios.get(api).then((res)=>setData(res.data))
+ 
+          });
+        } else {
+          console.log("logged out");
+        }
+      });
+       
+       
+       // axios.get('https://6194599f9b1e780017ca1f28.mockapi.io/catchart').then((res)=>setData(res.data))
       
      }
     
