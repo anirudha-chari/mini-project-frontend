@@ -82,7 +82,7 @@ const UsersCartAPI = {
             "id": String(productId),
             "quantity": quantity
         }
-        fetch(BASE_URL + "/checkout", {
+        fetch(BASE_URL + "/products/checkout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
