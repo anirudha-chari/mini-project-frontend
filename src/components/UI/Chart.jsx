@@ -2,15 +2,21 @@ import React,{useEffect,useState} from 'react'
 // import "./chart.css"
 import "../../styles/chart.css"
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { BarChart,Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart,Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import axios from 'axios';
 
 function Chart({title,dataKey,grid}) {
     const[data2,setData]= useState([]);
 
-    const getData = async()=>{
-      const response = await fetch('https://6194599f9b1e780017ca1f28.mockapi.io/catchart');
-      setData(await response.json());
-    }
+    // const getData = async()=>{
+    //   const response = await fetch('https://6194599f9b1e780017ca1f28.mockapi.io/catchart');
+    //   setData(await response.json());
+    // }
+      const getData= async()=>{
+        axios.get('https://6194599f9b1e780017ca1f28.mockapi.io/catchart').then((res)=>setData(res.data))
+      
+     }
+    
 
     useEffect(()=>{
       getData();

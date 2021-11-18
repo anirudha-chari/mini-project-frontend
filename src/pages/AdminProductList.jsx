@@ -8,7 +8,7 @@ import {useState,useEffect} from "react";
 import { width } from '@mui/system';
 import { Link } from "react-router-dom"; 
 import AdminSidebar from '../components/UI/AdminSidebar';
-
+import axios from 'axios';
 
 function ProductList() {
 
@@ -16,11 +16,18 @@ function ProductList() {
 // class ProductList extends Component{
     const[data,setData]= useState([]);
 
-    const getData = async()=>{
-      const response = await fetch('https://fakestoreapi.com/products');
-      setData(await response.json());
+    // const getData = async()=>{
+    //   const response = await fetch('https://fakestoreapi.com/products');
+    //   setData(await response.json());
+      
+    // }
+    const getData= async()=>{
+       axios.get('https://fakestoreapi.com/products').then((res)=>setData(res.data))
+     
     }
-
+       
+    //   setData(await response.json());
+   
     useEffect(()=>{
       getData();
     },[]);

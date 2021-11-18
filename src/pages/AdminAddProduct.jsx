@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import AdminSidebar from "../components/UI/AdminSidebar";
 import ProductService from "../ProductService"
+import { AuthProvider } from '../context/AuthContext';
+import { getAuth,onAuthStateChanged } from '@firebase/auth';
+import axios from "axios";
 export class AdminAddProduct extends Component {
 
+ 
+    
     constructor(props){
         super(props)
         this.state={
@@ -20,6 +25,10 @@ export class AdminAddProduct extends Component {
         this.changeDescriptionHandler = this.changeDescriptionHandler.bind(this);
         this.saveProduct = this.saveProduct.bind(this);
         this.changeImageHandler = this.changeImageHandler.bind(this);
+
+       
+       
+
     }
 
     saveProduct = (e) => {
@@ -29,9 +38,33 @@ export class AdminAddProduct extends Component {
         const formData = new FormData();
         formData.append("product",string_product);
         formData.append("file",this.state.image);
-        ProductService.postProduct(formData).then((res) => {
-            console.log(res)
-        })
+        const auth = getAuth();
+         onAuthStateChanged(auth, (user) => {
+            if (user) {
+              auth.currentUser.getIdToken(true).then((idtoken) => {
+                console.log(idtoken);
+                console.log("idtoken");
+                const api = " http://139.59.12.232:8082/admin/products";
+                axios.post(api,{ headers: { "Authorization": `Bearer ${idtoken}` } },formData)
+                .then((res) => console.log(res.data)).catch((err) =>
+                  console.log(err)
+                );
+              
+              });
+            } else {
+              console.log("logged out");
+            }
+          });
+
+        // axios.get(api, { headers: { "Authorization": `Bearer ${idtoken}` } })
+        // .then((res) => console.log(res.data)).catch((err) =>
+        //   console.log(err)
+        // );
+      
+
+        // ProductService.postProduct(formData).then((res) => {
+        //     console.log(res)
+        // })
     }
 
     changeNameHandler = (e) => {
@@ -39,6 +72,7 @@ export class AdminAddProduct extends Component {
     }
     changeCategoryHandler = (e) => {
         this.setState({category : e.target.value});
+        console.log(e)
     }
     changePriceHandler = (e) => {
         this.setState({price : e.target.value});
@@ -69,10 +103,10 @@ export class AdminAddProduct extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label>Category</label>
-                                        {/* <input placeholder="Category" name="category" className="form-control"
+                                        <input placeholder="Category" name="category" className="form-control"
                                         value={this.state.category} onChange={this.changeCategoryHandler}/>
-                             */}
-                                   <select className="form-select" aria-label="category" defaultValue={null}  value={this.state.category} id="category" onChange={this.changeCategoryHandler} required>
+                            
+                                   {/* <select className="form-select" aria-label="category" defaultValue={null}  value={this.state.category} id="category" onChange={this.changeCategoryHandler} required>
                                        <option value="1">Cold and Cough</option>
                                        <option value="2">Diabetic care</option>
                                        <option value="3">Abdomen care</option>
@@ -85,7 +119,7 @@ export class AdminAddProduct extends Component {
                                        <option value="10">Health Monitering Devices</option>
                                        <option value="11">Sanitizers</option>
                                        <option value="3">Disinfectants</option>
-                                    </select>
+                                    </select> */}
                                     </div>
                                     <div className="form-group">
                                         <label>Price</label>
