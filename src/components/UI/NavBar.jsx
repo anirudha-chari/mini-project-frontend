@@ -8,6 +8,11 @@ import 'bootstrap'
 export function Navbar(props) {
 
     const { isAdmin, isLoggedin, setIsLoggedin, logOut, currentUser } = useAuth()
+    function handleSubmit(e) {
+        e.preventDefault()
+        logOut()
+        setIsLoggedin(false)
+    }
 
 
     return (
@@ -84,7 +89,7 @@ export function Navbar(props) {
                             Hello
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><Link className="dropdown-item" to="/" onClick={() => { logOut(); setIsLoggedin(false) }}>Log out</Link></li>
+                            <li><Link className="dropdown-item" to="/" onClick={()=> {handleSubmit()}}>Log out</Link></li>
                             <li><Link className="dropdown-item" to="/admin">Cart</Link></li>
                             {/* <li><Link class="dropdown-item" href="#">Something else here</Link></li> */}
                         </ul>
