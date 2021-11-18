@@ -21,6 +21,8 @@ import { AllProducts } from './pages/AllProducts';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { AuthProvider } from './context/AuthContext';
+import Chatbot from "./components/UI/Chatbot";
+import UsersCartAPI from './data/UsersCartAPI';
 
 function App() {
   const [query, setQuery] = useState()
@@ -31,10 +33,13 @@ function App() {
     event.preventDefault()
     navigate('/search')
   };
+
+  UsersCartAPI.initialSetup()
   return (
     <div>
       <AuthProvider>
       <Navbar handleSubmit={handleSubmit} setQuery={setQuery} loggedin={loggedin} />
+      <Chatbot/>
       <Routes>
         <Route exact path="/" element={<HomePane />} />
         <Route exact path="products" element={<AllProducts />} />
