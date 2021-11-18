@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/chatStyle.css";
+import ChatbotAPI from "../../data/ChatbotAPI";
 
 class Chat extends React.Component {
     render() {
@@ -9,6 +10,14 @@ class Chat extends React.Component {
                     {msg.message}
                 </div>
             })}
+            <div>
+                <div style={{fontSize: "14px", fontWeight: "bold"}}>Suggestions</div>
+                <ul>
+                    {ChatbotAPI.chatbotData.map(data => {
+                        return <li style={{fontSize: "14px"}}>{data.question}</li>
+                    })}
+                </ul>
+            </div>
         </div>
     }
 }
