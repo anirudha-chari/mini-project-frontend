@@ -4,44 +4,55 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: blue;
 }
 
 .button {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    background-color: chartreuse;
-}
-/*
-.button:hover + .popup {
-    display: block;
-    width: 180px;
-    height: 55px;
-    position: absolute;
-    bottom: 15px;
-    right: 70px;
-    background-color: brown;
+    border-radius: 45%;
+    background-image: url(../images/chat-icon.png);
+    background-size: contain;
+    border: 1px solid orange;
 }
 
-.popup-text {
-    text-align: center;
-}
-*/
 .chat-container {
     width: 300px;
     height: 400px;
     position: fixed;
-    bottom: 90px;
+    bottom: 100px;
     right: 20px;
-    background-color: gray;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.chat-container::after {
+    content: "";
+    position: absolute;
+    border-top: 15px solid whitesmoke;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    bottom: -15px;
+    right: 15px;
+}
+
+.chat-container::before {
+    content: "";
+    position: absolute;
+    border-top: 16px solid black;
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    bottom: -17px;
+    right: 13px;
 }
 
 .chat-header {
-    width: 300px;
+    width: 296px;
     height: 55px;
     position: absolute;
-    background-color: orange;
+    background-color: lightgrey;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .header-text {
@@ -51,12 +62,11 @@
 }
 
 .chat-body {
-    width: 300px;
+    width: 296px;
     height: 300px;
     position: absolute;
     top: 55px;
     overflow: auto;
-    background-color: lightgreen;
 }
 
 .chat-input {
@@ -67,15 +77,20 @@
 }
 
 .input {
-    width: 255px;
+    width: 251px;
     height: 45px;
     padding-left: 10px;
+    border: 1px solid black;
+    border-bottom-left-radius: 8px;
 }
 
 .msg-button {
     width: 45px;
     height: 45px;
     position: absolute;
-    right: 0px;
-    background-color: lightblue;
+    right: 4px;
+    background-image: url(../images/send-icon.png);
+    background-size: contain;
+    border: 1px solid #0088cc;
+    border-bottom-right-radius: 8px;
 }
