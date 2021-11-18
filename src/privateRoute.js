@@ -1,7 +1,6 @@
 import React from 'react'
-import { Navigate, Route } from 'react-router'
+import { Navigate } from 'react-router'
 import { useAuth } from './context/AuthContext'
-import { useNavigate } from 'react-router'
 
 export function PrivateUserRoute({ children }) {
     const {currentUser} = useAuth();
