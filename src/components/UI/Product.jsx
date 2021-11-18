@@ -13,7 +13,7 @@ export const Product = ({ product, loading }) => {
     return (
         <>
             <div className="col-4 img-container">
-                <img src={product.image} alt={product.title} className="img-thumbnail" />
+                <img src={"http://139.59.12.232:8082/imgs/"+product.image} alt={product.title} className="img-thumbnail" />
             </div>
 
             <div className="col-7 product-info">

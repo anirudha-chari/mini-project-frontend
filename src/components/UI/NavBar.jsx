@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 import { FaAmbulance } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 import 'bootstrap'
+import { getAuth } from "@firebase/auth";
 
 
 export function Navbar(props) {
 
-    const { isAdmin, isLoggedin, setIsLoggedin, logOut, currentUser } = useAuth()
+    const { isAdmin, isLoggedin, setIsLoggedin, logOut } = useAuth()
     function handleSubmit() {
         logOut()
         setIsLoggedin(false)
     }
+    const user = getAuth().currentUser.email.split('@')[0]
+    // console.log(user);
+
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -88,7 +92,7 @@ export function Navbar(props) {
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><Link className="dropdown-item" to="/" onClick={()=> {handleSubmit()}}>Log out</Link></li>
-                            <li><Link className="dropdown-item" to="/admin">Cart</Link></li>
+                            <li><Link className="dropdown-item" to={`/user/${user}/cart`}>Cart</Link></li>
                             {/* <li><Link class="dropdown-item" href="#">Something else here</Link></li> */}
                         </ul>
                     </div>

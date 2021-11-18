@@ -3,16 +3,17 @@ import '../styles/category.css'
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
 import { BASE_URL } from "../constants/URL"
-import Pagination from "../components/UI/pagination"
-import {NoResults} from '../components/UI/NoResults'
+// import Pagination from "../components/UI/pagination"
+// import { NoResults } from '../components/UI/NoResults'
 
 export const CategoryPage = props => {
     const params = useParams()
-    const [products, setProducts] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
-    const postsPerPage = 5
-    const [filteredProducts, setFilteredProducts] = useState(products)
-    // const [sortedProducts, setSortedProducts] = useState(filteredProducts)
+    // const [products, setProducts] = useState([])
+    // const [currentPage, setCurrentPage] = useState(1)
+    const [currentProducts, setCurrentProducts] = useState([])
+    // const postsPerPage = 5
+    // const [indexOfLastPost, setindexOfLastPost] = useState()
+    // const [indexOfFirstPost, setindexOfFirstPost] = useState()
     const [filters, setFilters] = useState(
         {
             //filters to be used as query parameters
@@ -22,47 +23,52 @@ export const CategoryPage = props => {
         }
     )
 
-    const indexOfLastPost = currentPage * postsPerPage
-    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    // const indexOfLastPost = currentPage * postsPerPage
+    // const indexOfFirstPost = indexOfLastPost - postsPerPage
     const [sortOrder, setSortOrder] = useState()
-    let currentProducts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost)
+    // const [len, setLen] = useState()
 
+
+    // useEffect(() => {
+    //     fetch(BASE_URL + `/products/categories/${params.name}`)
+    //         .then(res => res.json())
+    //         .then(json => setProducts(json))
+    // }, [params.name])
 
     useEffect(() => {
+        let products
+        let prods
         fetch(BASE_URL + `/products/categories/${params.name}`)
             .then(res => res.json())
-            .then(json => setProducts(json))
-    }, [params.name])
-
-    useEffect(() => {
-        let prods = products.filter(
-            prod => {
-                let match = true
-                match = match && filters.excludeOutOfStock ? (prod.stock > 0) : match
-                match = match && filters.priceMax > prod.price
-                match = match && filters.priceMin < prod.price
-                return match
-            }
-        )
-        setFilteredProducts(prods)
-        // console.log(filteredProducts)
-    }, [products, filters])
-
-    useEffect(() => {
-        let prods
-            prods = filteredProducts.sort((a, b) => {
-                if (a.price > b.price) {
-                    return -1 * sortOrder
-                } else if (a.price < b.price) {
-                    return 1 * sortOrder
-                } else {
-                    return 0
-                }
+            .then(json => {
+                products = json
+                // setLen(products.length)
+                // setCurrentProducts(products)
+                prods = products.filter(
+                    prod => {
+                        let match = true
+                        match = match && filters.excludeOutOfStock ? (prod.stock > 0) : match
+                        match = match && filters.priceMax > prod.price
+                        match = match && filters.priceMin < prod.price
+                        return match
+                    }
+                )
+                prods = prods.sort((a, b) => {
+                    if (a.price > b.price) {
+                        return -1 * sortOrder
+                    } else if (a.price < b.price) {
+                        return 1 * sortOrder
+                    } else {
+                        return 0
+                    }
+                })
+                setCurrentProducts(prods)
+                // setindexOfLastPost(currentPage * postsPerPage)
+                // setindexOfFirstPost(indexOfLastPost - postsPerPage)
             })
-        setProducts(prods)
-    }, [sortOrder])
+    }, [sortOrder, filters, params.name])
+    // const paginate = (pagenumber) => { setCurrentPage(pagenumber) }
 
-    const paginate = (pagenumber) => { setCurrentPage(pagenumber) }
 
     return (
         <div className="row">
@@ -150,7 +156,7 @@ export const CategoryPage = props => {
                         return <ProductCard product={product} key={product.id} />
                     })}
                 </main>
-                {filteredProducts.length ? <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate} /> : < NoResults q={null} />}
+                {/* {currentProducts.length ? <Pagination postsPerPage={postsPerPage} totalPosts={len} setcurrentpage={setCurrentPage} /> : < NoResults q={null} />} */}
             </div>
         </div>
     )
