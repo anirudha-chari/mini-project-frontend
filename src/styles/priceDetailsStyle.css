@@ -1,0 +1,36 @@
+.price-details-header {
+    font-size: 4vmin;
+    font-weight: bold;
+    padding: 2vmin;
+}
+
+.price-details-body {
+    height: auto;
+    border: 1px solid black;
+    padding-top: 2vmin;
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+    padding-bottom: 1vmin;
+}
+
+.price-details-text {
+    height: 4vmin;
+    font-size: 3vmin;
+}
+
+.left-aligned {
+    float: left;
+}
+
+.right-aligned {
+    float: right;
+}
+
+.price-details-footer {
+    height: 10.5vmin;
+    font-size: 3vmin;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 2vmin;
+    margin-bottom: 2vmin;
+}

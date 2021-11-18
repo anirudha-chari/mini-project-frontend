@@ -1,0 +1,16 @@
+.product-list-header {
+    font-size: 4vmin;
+    font-weight: bold;
+    padding: 2vmin;
+}
+
+.place-order-bar {
+    padding: 2vmin;
+    border: 2px solid black;
+    margin-bottom: 2vmin;
+    overflow: hidden;
+}
+
+.order-btn {
+    float: right;
+}

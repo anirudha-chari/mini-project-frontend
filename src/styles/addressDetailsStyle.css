@@ -1,0 +1,21 @@
+.address-details-header {
+    font-size: 4vmin;
+    font-weight: bold;
+    padding: 2vmin;
+}
+
+.select-address-text {
+    height: auto;
+    font-size: 3vmin;
+    font-weight: bold;
+    border: 1px solid black;
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+    padding-left: 2vmin;
+}
+
+.address-entry {
+    width: 100%;
+    padding: 2vmin;
+    font-size: 2.5vmin;
+}
