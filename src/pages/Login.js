@@ -19,7 +19,9 @@ export default function Login() {
         try {
             setError("")
             // setLoading(true)
-            if((emailRef.current.value.split('@')[1] !== '@admin.com') && isAdmin){
+            let emailend = '@'+emailRef.current.value.split('@')[1]
+            console.log(emailend)
+            if((emailend !== '@admin.com') && isAdmin){
                 throw new Error('You are not authorised')
             }
             await login(emailRef.current.value, passwordRef.current.value)
