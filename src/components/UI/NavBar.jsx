@@ -13,11 +13,12 @@ export function Navbar(props) {
         logOut()
         setIsLoggedin(false)
     }
-    
-    let user = "";
-    let auth = getAuth().currentUser
-    if(auth!=null){
+
+    let user = getAuth().currentUser
+    if(user){
         user = getAuth().currentUser.email.split('@')[0]
+    } else {
+        user = ''
     }
     // console.log(user);
 
@@ -40,54 +41,51 @@ export function Navbar(props) {
                     </form>
                     <ul className="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
                         <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Health Concerns
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="" className="dropdown-item" href="#">Action</Link></li>
-                                <li><Link to="" className="dropdown-item" href="#">Another action</Link></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><Link to="" className="dropdown-item" href="#">Something else here</Link></li>
+                                <li><Link to="/products/categories/coughandcold" className="dropdown-item" >Cough and Cold</Link></li>
+                                <li><Link to="/products/categories/diebeticcare" className="dropdown-item" >Diebetic Care</Link></li>
+                                <li><Link to="/products/categories/abdomencare" className="dropdown-item" >Abdomen Care</Link></li>
+                                <li><Link to="/products/categories/immunityboosters" className="dropdown-item" >AImmunity Boosters</Link></li>
+
+                                <li><Link to="/products/categories/ovitaminsandsupplements" className="dropdown-item" >vitamins and supplements</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Personal Care
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="" className="dropdown-item" href="#">Action</Link></li>
-                                <li><Link to="" className="dropdown-item" href="#">Another action</Link></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><Link to="" className="dropdown-item" href="#">Something else here</Link></li>
+                                <li><Link to="/products/categories/skincare" className="dropdown-item" >Skin Care</Link></li>
+                                <li><Link to="/products/categories/haircare" className="dropdown-item" >Hair Care</Link></li>
+                                <li><Link to="/products/categories/oralcare" className="dropdown-item" >Oral Care</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Health and Nutrition
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="" className="dropdown-item" href="#">Action</Link></li>
-                                <li><Link to="" className="dropdown-item" href="#">Another action</Link></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><Link to="" className="dropdown-item" href="#">Something else here</Link></li>
+                                <li><Link to="/products/categories/vitaminsandsupplements" className="dropdown-item" >vitamins and Supplements</Link></li>
+                                <li><Link to="/products/categories/weightmanagment" className="dropdown-item" >Weight management</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Covid Care
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="" className="dropdown-item" href="#">Action</Link></li>
-                                <li><Link to="" className="dropdown-item" href="#">Another action</Link></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><Link to="" className="dropdown-item" href="#">Something else here</Link></li>
+                                <li><Link to="/products/categories/healthmonitoringdevices" className="dropdown-item" >Health monitorig devices</Link></li>
+                                <li><Link to="/products/categories/hsanitizersanddisinfentants" className="dropdown-item" >sanitizers and disinfectents</Link></li>
                             </ul>
                         </li>
                     </ul>
                     {!isLoggedin &&
-                    <Link to="/login" className="d-flex mb-2" >
-                         <button className="btn btn-primary" type="submit">Login</button>
-                    </Link>
+                        <Link to="/login" className="d-flex mb-2" >
+                            <button className="btn btn-primary" type="submit">Login</button>
+                        </Link>
                     }
 
 
@@ -96,9 +94,9 @@ export function Navbar(props) {
                             Hello
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><Link className="dropdown-item" to="/" onClick={()=> {handleSubmit()}}>Log out</Link></li>
+                            <li><Link className="dropdown-item" to="/" onClick={() => { handleSubmit() }}>Log out</Link></li>
                             <li><Link className="dropdown-item" to={`/user/${user}/cart`}>Cart</Link></li>
-                            {/* <li><Link class="dropdown-item" href="#">Something else here</Link></li> */}
+                            {/* <li><Link class="dropdown-item" >Something else here</Link></li> */}
                         </ul>
                     </div>
                     }

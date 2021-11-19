@@ -38,12 +38,12 @@ export default function SignUp() {
             <div className="card container mt-5 justify-content-center align-items-center" style={{ maxWidth: "400px" }}>
                 <div className='card-body'>
                     <h2> Sign up</h2>
-                    {error && <div class="alert alert-danger" role="alert">{error}</div>}
+                    {error && <div className="alert alert-danger" role="alert">{error}</div>}
                     <form onSubmit={e => handleSubmit(e)}>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email address</label>
                             <input type="email" className="form-control" id="email" aria-describedby="emailHelp" ref={emailRef} />
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="password" className="form-label" >Password</label>

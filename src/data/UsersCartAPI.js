@@ -1,4 +1,5 @@
 import {BASE_URL} from "../constants/URL";
+import axios from 'axios'
 
 const UsersCartAPI = {
     initialSetup : function() {
@@ -63,8 +64,7 @@ const UsersCartAPI = {
             "id": productId,
             "quantity": quantity
         }
-        await fetch(BASE_URL + `/products/${userId}`)
-            .then(response => response.json())
+        await axios.get(BASE_URL + `/products/${userId}`)
             .then(json => {
                 productData["stock"] = json["stock"]
                 productData["description"] = json["description"]
@@ -82,13 +82,11 @@ const UsersCartAPI = {
             "id": String(productId),
             "quantity": quantity
         }
-        fetch(BASE_URL + "/products/checkout", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
+        let headers={
+            "Content-Type": "application/json"
+        }
+        axios.post(BASE_URL + "/products/checkout", JSON.stringify(data), {headers}
+        )
     }
 }
 
