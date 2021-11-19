@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AddToCartBtn } from './Buttons';
 // import Chart from 'chart.js/auto';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import UsersCartAPI from "../../data/UsersCartAPI";
 
 import '../../styles/product.css'
 // import cart from '../../data/cartContents';
@@ -9,6 +10,13 @@ import '../../styles/product.css'
 export const Product = ({ product }) => {
     const [quantity, setQuantity] = useState(1)
     const [btndisabled, setBtndisabled] = useState(true)
+
+    let user = getAuth().currentUser
+    if(user){
+        user = getAuth().currentUser.email.split('@')[0]
+    } else {
+        user = ''
+    }
 
     return (
         <>
