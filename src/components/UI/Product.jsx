@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AddToCartBtn } from './Buttons';
 // import Chart from 'chart.js/auto';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import UsersCartAPI from "../../data/UsersCartAPI";
 
 import '../../styles/product.css'
 import cart from '../../data/cartContents';
@@ -9,6 +10,13 @@ import cart from '../../data/cartContents';
 export const Product = ({ product, loading }) => {
     const [quantity, setQuantity] = useState(1)
     const [btndisabled, setBtndisabled] = useState(true)
+
+    let user = getAuth().currentUser
+    if(user){
+        user = getAuth().currentUser.email.split('@')[0]
+    } else {
+        user = ''
+    }
 
     return (
         <>
@@ -41,7 +49,7 @@ export const Product = ({ product, loading }) => {
                         }
                     } className="btn btn-outline-secondary">+</button>
                 </div>
-                <AddToCartBtn handleClick={() => cart.addToCart(product.id, quantity)} />
+                <AddToCartBtn handleClick={() => UsersCartAPI.addToUserCart(user, product.id, quantity)} />
             </div>
         </>
     );

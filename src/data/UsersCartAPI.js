@@ -60,6 +60,19 @@ const UsersCartAPI = {
         sessionStorage.usersCartData = JSON.stringify(data)
     },
     addToUserCart : async function(userId, productId, quantity) {
+        let data = JSON.parse(sessionStorage.usersCartData)
+        if(!data[String(userId)]) {
+            data[String(userId)] = []
+        }
+        else {
+            let userProducts = data[String(userId)]
+            for(let product of userProducts) {
+                if(product["id"] === productId) {
+                    product["quantity"] = product["quantity"] + quantity
+                }
+            }
+            return
+        }
         let productData = {
             "id": productId,
             "quantity": quantity
@@ -70,10 +83,6 @@ const UsersCartAPI = {
                 productData["description"] = json["description"]
                 productData["price"] = json["price"]
             })
-        let data = JSON.parse(sessionStorage.usersCartData)
-        if(!data[String(userId)]) {
-            data[String(userId)] = []
-        }
         data[String(userId)].push(productData)
         sessionStorage.usersCartData = JSON.stringify(data)
     },
