@@ -5,20 +5,40 @@ import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import {useState,useEffect} from "react";
 import { Link } from "react-router-dom"; 
-import AdminSidebar from '../components/UI/AdminSidebar';
-
+// import AdminSidebar from '../components/UI/AdminSidebar';
+// import { AuthProvider } from '../context/AuthContext';
+import { getAuth,onAuthStateChanged } from '@firebase/auth';
+import axios from 'axios';
 
 function ProductList() {
 
-
-// class ProductList extends Component{
     const[data,setData]= useState([]);
 
-    const getData = async()=>{
-      const response = await fetch('https://fakestoreapi.com/products');
-      setData(await response.json());
-    }
-
+    // const getData = async()=>{
+    //   const response = await fetch('https://fakestoreapi.com/products');
+    //   setData(await response.json());
+      
+    // }
+    const getData= async()=>{
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          auth.currentUser.getIdToken(true).then((idtoken) => {
+            console.log(idtoken);
+            console.log("idtoken");
+            const api = " http://139.59.12.232:8082/admin/products/";
+            axios.get(api).then((res)=>setData(res.data))
+ 
+          });
+        } else {
+          console.log("logged out");
+        }
+      });
+      // axios.get('https://fakestoreapi.com/products').then((res)=>setData(res.data))
+     
+    }      
+    //   setData(await response.json());
+   
     useEffect(()=>{
       getData();
     },[]);
@@ -60,7 +80,7 @@ function ProductList() {
       ];
     return (
       <div className="container2">
-        <AdminSidebar/>
+        {/* <AdminSidebar/> */}
         
         <div className="productlist">
           <Link to={"/adminaddproduct"}>
