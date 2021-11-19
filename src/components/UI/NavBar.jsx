@@ -42,43 +42,14 @@ export function Navbar(props) {
                     <ul className="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
                         <li className="nav-item dropdown">
                             <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Health Concerns
+                                Categories
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                                 <li><Link to="/products/categories/coughandcold" className="dropdown-item" >Cough and Cold</Link></li>
                                 <li><Link to="/products/categories/diebeticcare" className="dropdown-item" >Diebetic Care</Link></li>
                                 <li><Link to="/products/categories/abdomencare" className="dropdown-item" >Abdomen Care</Link></li>
                                 <li><Link to="/products/categories/immunityboosters" className="dropdown-item" >AImmunity Boosters</Link></li>
-
                                 <li><Link to="/products/categories/ovitaminsandsupplements" className="dropdown-item" >vitamins and supplements</Link></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Personal Care
-                            </Link>
-                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="/products/categories/skincare" className="dropdown-item" >Skin Care</Link></li>
-                                <li><Link to="/products/categories/haircare" className="dropdown-item" >Hair Care</Link></li>
-                                <li><Link to="/products/categories/oralcare" className="dropdown-item" >Oral Care</Link></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Health and Nutrition
-                            </Link>
-                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="/products/categories/vitaminsandsupplements" className="dropdown-item" >vitamins and Supplements</Link></li>
-                                <li><Link to="/products/categories/weightmanagment" className="dropdown-item" >Weight management</Link></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Covid Care
-                            </Link>
-                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="/products/categories/healthmonitoringdevices" className="dropdown-item" >Health monitorig devices</Link></li>
-                                <li><Link to="/products/categories/hsanitizersanddisinfentants" className="dropdown-item" >sanitizers and disinfectents</Link></li>
                             </ul>
                         </li>
                     </ul>
@@ -101,7 +72,7 @@ export function Navbar(props) {
                     </div>
                     }
                     {
-                        isAdmin && isLoggedin && <Link to="/adminviewproducts" className="d-flex mb-2" >
+                        isAdmin && isLoggedin && <Link to="/admin" className="d-flex mb-2" >
                             <button className="btn btn-primary" type="button">Manage</button>
                         </Link>
                     }
