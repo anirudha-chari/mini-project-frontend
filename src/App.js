@@ -5,15 +5,13 @@ import { Navbar } from './components/UI/NavBar';
 import { CategoryPage } from './pages/Category';
 import { ProductPage } from './pages/ProductPage';
 import { HomePane } from './pages/Home';
-import { Profile } from './pages/Profile';
-import UserList from './components/UI/UserList'
 import AdminProductList from './pages/AdminProductList'
 import AdminAddProduct from './pages/AdminAddProduct';
 import AdminEditProduct from './pages/AdminEditProduct';
 import { Result } from './pages/SearchResults';
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderConfirmation from "./pages/OrderConfirmation";
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router'
 import { AllProducts } from './pages/AllProducts';
 import Login from './pages/Login';
@@ -23,6 +21,7 @@ import { PrivateUserRoute, PrivateAdminRoute } from './privateRoute';
 import Chatbot from "./components/UI/Chatbot";
 // import { getAuth, onAuthStateChanged } from "firebase/auth"
 import UsersCartAPI from './data/UsersCartAPI'
+import { useEffect } from 'react'
 // import axios from 'axios';
 
 function App() {
@@ -34,36 +33,38 @@ function App() {
     navigate('/search')
   };
 
-  UsersCartAPI.initialSetup()
+  useEffect(() => {
+    UsersCartAPI.initialSetup()
+  }, [])
+  
   return (
     <div>
       <AuthProvider>
-      <Navbar handleSubmit={handleSubmit}setQuery={setQuery} />
-      <Chatbot/>
+      <Navbar handleSubmit={handleSubmit} setQuery={setQuery} />
+      <Chatbot />
       <Routes>
-        <Route exact path="/" element={<HomePane />} />
-        <Route exact path="products" element={<AllProducts />} />
-        <Route path="category/:name" element={<CategoryPage />} />
-        <Route path="product/:id" element={<ProductPage />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="search" element={<Result query={query} />} />
-        <Route path="adminviewusers" element={<PrivateAdminRoute><UserList /></PrivateAdminRoute>} />
-        <Route path="adminviewproducts" element={<PrivateAdminRoute><AdminProductList /></PrivateAdminRoute>}/> 
-        <Route path="admineditproduct" element={<PrivateAdminRoute><AdminEditProduct /></PrivateAdminRoute>} />
-        <Route path="adminaddproduct" element={<PrivateAdminRoute><AdminAddProduct /></PrivateAdminRoute>} />
-        <Route path="login" element={<Login/>}/> 
-        <Route path="signup" element={<SignUp/>}/>
-        <Route path="/user/:userId/cart" element={<PrivateUserRoute><ShoppingCart/></PrivateUserRoute>}/>
-        <Route path="/order-confirm" element={<PrivateUserRoute><OrderConfirmation/></PrivateUserRoute>}/>
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />      </Routes>
-        </AuthProvider>
+      <Route exact path="/" element={<HomePane />} />
+      <Route exact path="products" element={<AllProducts />} />
+      <Route path="category/:name" element={<CategoryPage />} />
+      <Route path="product/:id" element={<ProductPage />} />
+      <Route path="search" element={<Result query={query} />} />
+
+      <Route path="login" element={<Login />} />
+      <Route path="signup" element={<SignUp />} />
+      <Route path="adminviewproducts" element={<PrivateAdminRoute><AdminProductList /></PrivateAdminRoute>} />
+      <Route path="admineditproduct" element={<PrivateAdminRoute><AdminEditProduct /></PrivateAdminRoute>} />
+      <Route path="adminaddproduct" element={<PrivateAdminRoute><AdminAddProduct /></PrivateAdminRoute>} />
+      <Route path="/user/:userId/cart" element={<PrivateUserRoute><ShoppingCart /></PrivateUserRoute>} />
+      <Route path="/order-confirm" element={<PrivateUserRoute><OrderConfirmation /></PrivateUserRoute>} />
+      <Route
+      path="*"
+      element={
+      <main style={{ padding: "1rem" }}>
+      <p>There's nothing here!</p>
+      </main>
+    }
+      />      </Routes>
+      </AuthProvider>
     </div>
   );
 }
@@ -72,6 +73,7 @@ function App() {
 //   const auth = getAuth();
 //   onAuthStateChanged(auth, (user) => {
 //     if (user) {
+//       console.log(auth.currentUser)
 //       auth.currentUser.getIdToken(true).then((idtoken) => {
 //         console.log(idtoken);
 //         console.log("idtoken");

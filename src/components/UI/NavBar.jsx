@@ -45,12 +45,12 @@ export function Navbar(props) {
                                 Categories
                             </Link>
                             <ul className="dropdown-menu dropdown-menu-dark me-2" aria-labelledby="navbarDropdown">
-                                <li><Link to="/products/categories/Health_monitoring_Devices" className="dropdown-item" >Health Monitoring Devices</Link></li>
-                                <li><Link to="/products/categories/Ayurveda" className="dropdown-item" >Ayurveda</Link></li>
-                                <li><Link to="/products/categories/Personal_care" className="dropdown-item" >Personal care</Link></li>
-                                <li><Link to="/products/categories/Health_Nutrition" className="dropdown-item" >Health andNutrition</Link></li>
-                                <li><Link to="/products/categories/Home_Essentials" className="dropdown-item" >Home Essentials</Link></li>
-                                <li><Link to="/products/categories/Baby_Care" className="dropdown-item" >Baby Care</Link></li>
+                                <li><Link to="/category/Health_monitoring_Devices" className="dropdown-item" >Health Monitoring Devices</Link></li>
+                                <li><Link to="/category/Ayurveda" className="dropdown-item" >Ayurveda</Link></li>
+                                <li><Link to="/category/Personal_care" className="dropdown-item" >Personal care</Link></li>
+                                <li><Link to="/category/Health_Nutrition" className="dropdown-item" >Health andNutrition</Link></li>
+                                <li><Link to="/category/Home_Essentials" className="dropdown-item" >Home Essentials</Link></li>
+                                <li><Link to="/category/Baby_Care" className="dropdown-item" >Baby Care</Link></li>
                             </ul>
                         </li>
                     </ul>

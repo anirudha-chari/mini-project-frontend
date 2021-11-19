@@ -2,8 +2,6 @@ import React from "react"
 import '../../styles/card.css'
 import { AddToCartBtn } from "./Buttons"
 import { Link } from "react-router-dom"
-import cart from "../../data/cartContents"
-
 
 export const CardContainer = (props) => {
     return (
@@ -26,20 +24,20 @@ export const ProductCard = React.memo(({product}) => {
         <div className="card viewcard" style={{padding:"10px"}}>
 
             <Link to={`/product/${productId}`} style={{textDecoration:"none"}}>
-                <img src={"http://139.59.12.232:8082/imgs/"+product.image} className="card-img-top" alt={product.title} style={{ width: "208px", height: "208px", objectFit: "contain" }} />
+                <img src={product.product_photo} className="card-img-top" alt={product.name} style={{ width: "208px", height: "208px", objectFit: "contain" }} />
                 <div className="card-body">
-                    <h5 className="card-title" style={{ height: "72px", overflow: "hidden" }}>{product.title}</h5>
+                    <h5 className="card-title" style={{ height: "72px", overflow: "hidden" }}>{product.name}</h5>
                     <p className="card-text" >MRP <span className="price-tag" style={{fontFamily:"monospace"}}>₹{product.price}</span></p>
                 </div>
             </Link>
-            <AddToCartBtn handleClick={() =>cart.addToCart(product.id, 1)} />
+            <AddToCartBtn productId={product.id} quantity={1} />
         </div>
     )
 })
 
 export const CategoryCard = React.memo(({title}) => {
     return (
-        <Link className="card categorycard viewcard" title={title} to={`/category/${title}`} style={{ height: "3rem" }}>
+        <Link className="card categorycard viewcard" title={title} to={`/category/${title.replace(/ /g, '_')}`} style={{ height: "3rem" }}>
             <p className="card-text">{title}</p>
         </Link>
     )

@@ -13,20 +13,22 @@ export const HomePane = props => {
 
     useEffect(() => {
         axios.get(BASE_URL + '/products/')
-            .then(setLoadingCategories(true))
-            .then(json => setProducts(json.data))
-            .then(setLoadingCategories(false))
-
+        .then(setLoadingProducts(true))
+        .then(json => setProducts(json.data))
+        .then(setLoadingProducts(false))
+        .catch(err => console.log(err))
+        
         axios.get(BASE_URL + '/products/categories')
-            .then(setLoadingProducts(true))
-            .then(json => setCategories(json.data))
-            .then(setLoadingProducts(false))
+        .then(setLoadingCategories(true))
+        .then(json => setCategories(json.data))
+        .then(setLoadingCategories(false))
+        .catch(err => console.log(err))
     }, [])
 
     return (
         <section className="container-fluid">
             <CardContainer title="Shop by health conditions">
-                {!loadingCategories && categories && categories.length > 0 && categories.map(category => <CategoryCard title={category} key={category} />)}
+                {!loadingCategories && categories.length > 0 && categories.map(category => <CategoryCard title={category} key={category} />)}
             </CardContainer>
             <CardContainer title="Best sellers">
                 {!loadingProducts && products && products.map(product => {
