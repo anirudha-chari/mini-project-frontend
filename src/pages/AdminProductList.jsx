@@ -5,8 +5,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import {useState,useEffect} from "react";
 import { Link } from "react-router-dom"; 
-import AdminSidebar from '../components/UI/AdminSidebar';
-import { AuthProvider } from '../context/AuthContext';
+// import AdminSidebar from '../components/UI/AdminSidebar';
+// import { AuthProvider } from '../context/AuthContext';
 import { getAuth,onAuthStateChanged } from '@firebase/auth';
 import axios from 'axios';
 
@@ -26,7 +26,7 @@ function ProductList() {
           auth.currentUser.getIdToken(true).then((idtoken) => {
             console.log(idtoken);
             console.log("idtoken");
-            const api = " http://139.59.12.232:8082/admin/products";
+            const api = " http://139.59.12.232:8082/admin/products/";
             axios.get(api).then((res)=>setData(res.data))
  
           });
@@ -80,7 +80,7 @@ function ProductList() {
       ];
     return (
       <div className="container2">
-        <AdminSidebar/>
+        {/* <AdminSidebar/> */}
         
         <div className="productlist">
           <Link to={"/adminaddproduct"}>

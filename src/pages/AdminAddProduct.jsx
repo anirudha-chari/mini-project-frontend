@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AdminSidebar from "../components/UI/AdminSidebar";
-import ProductService from "../ProductService"
-import { AuthProvider } from '../context/AuthContext';
+// import ProductService from "../ProductService"
+// import { AuthProvider } from '../context/AuthContext';
 import { getAuth,onAuthStateChanged } from '@firebase/auth';
 import axios from "axios";
 export class AdminAddProduct extends Component {
@@ -44,7 +44,7 @@ export class AdminAddProduct extends Component {
               auth.currentUser.getIdToken(true).then((idtoken) => {
                 console.log(idtoken);
                 console.log("idtoken");
-                const api = " http://139.59.12.232:8082/admin/products";
+                const api = " http://139.59.12.232:8082/admin/products/";
                 axios.post(api,{ headers: { "Authorization": `Bearer ${idtoken}` } },formData)
                 .then((res) => console.log(res.data)).catch((err) =>
                   console.log(err)

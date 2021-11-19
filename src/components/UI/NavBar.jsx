@@ -103,7 +103,7 @@ export function Navbar(props) {
                     </div>
                     }
                     {
-                        isAdmin && isLoggedin && <Link to="/admin" className="d-flex mb-2" >
+                        isAdmin && isLoggedin && <Link to="/adminviewproducts" className="d-flex mb-2" >
                             <button className="btn btn-primary" type="button">Manage</button>
                         </Link>
                     }
