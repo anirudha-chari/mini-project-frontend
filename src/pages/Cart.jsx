@@ -10,8 +10,7 @@ export const Cart = props => {
     useEffect(() => {
             axios.get(BASE_URL + `/products/${cart.items[0].id}`)
                 .then(json => setProduct(json))
-                .then(console.log(cart.items))
-                .catch(()=>console.log(cart.items[0].id))
+                // .catch(()=>console.log(cart.items[0].id))
     }, [])
     return (
         <div>

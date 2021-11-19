@@ -42,8 +42,8 @@ export class AdminAddProduct extends Component {
          onAuthStateChanged(auth, (user) => {
             if (user) {
               auth.currentUser.getIdToken(true).then((idtoken) => {
-                console.log(idtoken);
-                console.log("idtoken");
+                // console.log(idtoken);
+                // console.log("idtoken");
                 const api = " http://139.59.12.232:8082/admin/products/";
                 axios.post(api,{ headers: { "Authorization": `Bearer ${idtoken}` } },formData)
                 .then((res) => console.log(res.data)).catch((err) =>
@@ -72,7 +72,7 @@ export class AdminAddProduct extends Component {
     }
     changeCategoryHandler = (e) => {
         this.setState({category : e.target.value});
-        console.log(e)
+        // console.log(e)
     }
     changePriceHandler = (e) => {
         this.setState({price : e.target.value});

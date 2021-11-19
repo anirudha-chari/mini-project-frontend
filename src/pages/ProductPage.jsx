@@ -24,6 +24,7 @@ export const ProductPage = props => {
             setProducts(catRes.data)
         }
         if(product){
+
             getSimilarProducts()
         }
     }, [product])

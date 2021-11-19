@@ -2,8 +2,6 @@ import React from "react"
 import '../../styles/card.css'
 import { AddToCartBtn } from "./Buttons"
 import { Link } from "react-router-dom"
-import cart from "../../data/cartContents"
-
 
 export const CardContainer = (props) => {
     return (

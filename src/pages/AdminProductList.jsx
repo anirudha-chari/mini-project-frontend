@@ -25,8 +25,8 @@ function ProductList() {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           auth.currentUser.getIdToken(true).then((idtoken) => {
-            console.log(idtoken);
-            console.log("idtoken");
+            // console.log(idtoken);
+            // console.log("idtoken");
             const api = " http://139.59.12.232:8082/admin/products/";
             axios.get(api).then((res)=>setData(res.data))
  

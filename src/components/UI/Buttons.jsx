@@ -6,7 +6,7 @@ export function AddToCartBtn({productId, quantity}) {
     let user = getAuth().currentUser
     const navigate = useNavigate()
     function handleClick(e){
-        if(user){
+        if(user !== null){
             const userId = user.email.split('@')[0]
             UsersCartAPI.addToUserCart(userId, productId, quantity)
         } else {

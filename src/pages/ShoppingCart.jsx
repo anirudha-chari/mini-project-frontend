@@ -10,6 +10,7 @@ import UsersCartAPI from "../data/UsersCartAPI"
 function ShoppingCart() {
     const params = useParams() 
     const products = UsersCartAPI.getCartDataForUser(params.userId)
+    // console.log(products);
     return <div className="container-fluid">
         <div className="row">
             <div className="col-1"/>

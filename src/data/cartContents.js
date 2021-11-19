@@ -7,7 +7,7 @@ const cart = {
         } else {
             cart.items[foundIndex].qty += qty
         }
-        console.log(cart.items)
+        // console.log(cart.items)
     },
     removeFromCart: id => {
         let foundIndex = cart.items.findIndex(itm => itm.id === id)
