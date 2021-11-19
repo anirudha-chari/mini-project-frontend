@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mini-project/static/css/main.41b0f444.chunk.css",
+    "main.js": "/mini-project/static/js/main.7d68f844.chunk.js",
+    "main.js.map": "/mini-project/static/js/main.7d68f844.chunk.js.map",
+    "runtime-main.js": "/mini-project/static/js/runtime-main.ebbcf084.js",
+    "runtime-main.js.map": "/mini-project/static/js/runtime-main.ebbcf084.js.map",
+    "static/css/2.383c0125.chunk.css": "/mini-project/static/css/2.383c0125.chunk.css",
+    "static/js/2.8c67239c.chunk.js": "/mini-project/static/js/2.8c67239c.chunk.js",
+    "static/js/2.8c67239c.chunk.js.map": "/mini-project/static/js/2.8c67239c.chunk.js.map",
+    "index.html": "/mini-project/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/mini-project/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.41b0f444.chunk.css.map": "/mini-project/static/css/main.41b0f444.chunk.css.map",
+    "static/js/2.8c67239c.chunk.js.LICENSE.txt": "/mini-project/static/js/2.8c67239c.chunk.js.LICENSE.txt",
+    "static/media/chatbotStyle.css": "/mini-project/static/media/send-icon.70e7f71b.png",
+    "static/media/coronavirus.8ad205b8.png": "/mini-project/static/media/coronavirus.8ad205b8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ebbcf084.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.8c67239c.chunk.js",
+    "static/css/main.41b0f444.chunk.css",
+    "static/js/main.7d68f844.chunk.js"
+  ]
+}
