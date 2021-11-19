@@ -13,7 +13,13 @@ export function Navbar(props) {
         logOut()
         setIsLoggedin(false)
     }
-    const user = getAuth().currentUser.email.split('@')[0]
+
+    let user = getAuth().currentUser
+    if(user){
+        user = getAuth().currentUser.email.split('@')[0]
+    } else {
+        user = ''
+    }
     // console.log(user);
 
 
