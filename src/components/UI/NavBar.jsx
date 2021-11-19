@@ -39,17 +39,18 @@ export function Navbar(props) {
                             onChange={e => props.setQuery(e.target.value)} />
                         <button className="btn btn-outline-light me-2" type="submit">Search</button>
                     </form>
-                    <ul className="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
+                    <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
                         <li className="nav-item dropdown">
                             <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categories
                             </Link>
-                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><Link to="/products/categories/coughandcold" className="dropdown-item" >Cough and Cold</Link></li>
-                                <li><Link to="/products/categories/diebeticcare" className="dropdown-item" >Diebetic Care</Link></li>
-                                <li><Link to="/products/categories/abdomencare" className="dropdown-item" >Abdomen Care</Link></li>
-                                <li><Link to="/products/categories/immunityboosters" className="dropdown-item" >AImmunity Boosters</Link></li>
-                                <li><Link to="/products/categories/ovitaminsandsupplements" className="dropdown-item" >vitamins and supplements</Link></li>
+                            <ul className="dropdown-menu dropdown-menu-dark me-2" aria-labelledby="navbarDropdown">
+                                <li><Link to="/products/categories/Health_monitoring_Devices" className="dropdown-item" >Health Monitoring Devices</Link></li>
+                                <li><Link to="/products/categories/Ayurveda" className="dropdown-item" >Ayurveda</Link></li>
+                                <li><Link to="/products/categories/Personal_care" className="dropdown-item" >Personal care</Link></li>
+                                <li><Link to="/products/categories/Health_Nutrition" className="dropdown-item" >Health andNutrition</Link></li>
+                                <li><Link to="/products/categories/Home_Essentials" className="dropdown-item" >Home Essentials</Link></li>
+                                <li><Link to="/products/categories/Baby_Care" className="dropdown-item" >Baby Care</Link></li>
                             </ul>
                         </li>
                     </ul>
@@ -72,7 +73,7 @@ export function Navbar(props) {
                     </div>
                     }
                     {
-                        isAdmin && isLoggedin && <Link to="/admin" className="d-flex mb-2" >
+                        isAdmin && isLoggedin && <Link to="/adminviewproducts" className="d-flex mb-2" >
                             <button className="btn btn-primary" type="button">Manage</button>
                         </Link>
                     }

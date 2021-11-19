@@ -6,7 +6,6 @@ import { CategoryPage } from './pages/Category';
 import { ProductPage } from './pages/ProductPage';
 import { HomePane } from './pages/Home';
 import { Profile } from './pages/Profile';
-import AdminPage from './pages/AdminPage';
 import UserList from './components/UI/UserList'
 import AdminProductList from './pages/AdminProductList'
 import AdminAddProduct from './pages/AdminAddProduct';
@@ -48,7 +47,6 @@ function App() {
         <Route path="product/:id" element={<ProductPage />} />
         <Route path="profile" element={<Profile />} />
         <Route path="search" element={<Result query={query} />} />
-        <Route path="admin" element={<PrivateAdminRoute><AdminPage /></PrivateAdminRoute>} />
         <Route path="adminviewusers" element={<PrivateAdminRoute><UserList /></PrivateAdminRoute>} />
         <Route path="adminviewproducts" element={<PrivateAdminRoute><AdminProductList /></PrivateAdminRoute>}/> 
         <Route path="admineditproduct" element={<PrivateAdminRoute><AdminEditProduct /></PrivateAdminRoute>} />

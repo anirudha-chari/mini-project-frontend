@@ -20,7 +20,6 @@ export default function Login() {
             setError("")
             // setLoading(true)
             let emailend = '@'+emailRef.current.value.split('@')[1]
-            console.log(emailend)
             if((emailend !== '@admin.com') && isAdmin){
                 throw new Error('You are not authorised')
             }

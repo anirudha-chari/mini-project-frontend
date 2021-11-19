@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 // import AdminSidebar from '../components/UI/AdminSidebar';
 // import { AuthProvider } from '../context/AuthContext';
 import { getAuth,onAuthStateChanged } from '@firebase/auth';
+import 'bootstrap'
 import axios from 'axios';
 
 function ProductList() {
@@ -79,7 +80,7 @@ function ProductList() {
         // },
       ];
     return (
-      <div className="container2">
+      <div className="container2 mx-2">
         {/* <AdminSidebar/> */}
         
         <div className="productlist">
