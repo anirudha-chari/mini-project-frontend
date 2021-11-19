@@ -39,8 +39,8 @@ export const CategoryPage = props => {
     useEffect(() => {
         let products
         let prods
-        axios.get(BASE_URL + `/products/categories/${params.name}`)
-            .then(res => res.json())
+        axios.get(BASE_URL + `/products/category/${params.name}`)
+            .then(res => res.data)
             .then(json => {
                 products = json
                 // setLen(products.length)

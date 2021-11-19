@@ -7,7 +7,7 @@ import logo from "../../images/coronavirus.png";
 function CartProduct(props) {
     return <div className="product">
         <div className="image-container">
-            <img className="image" src={logo} alt="logo"/>
+            <img className="image" src={props.product.product_photo} alt="logo"/>
         </div>
         <div className="description">
             {props.product.description}
