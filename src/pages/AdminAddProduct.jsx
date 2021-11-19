@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AdminSidebar from "../components/UI/AdminSidebar";
+// import AdminSidebar from "../components/UI/AdminSidebar";
 // import ProductService from "../ProductService"
 // import { AuthProvider } from '../context/AuthContext';
 import { getAuth,onAuthStateChanged } from '@firebase/auth';
@@ -89,7 +89,7 @@ export class AdminAddProduct extends Component {
     render() {
         return (
             <div>
-                 <AdminSidebar />
+                 {/* <AdminSidebar /> */}
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
