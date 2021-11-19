@@ -2,12 +2,13 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../context/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
+// import {getAuth} from 'firebase/auth'
 import 'bootstrap'
 
 export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login, setIsLoggedin, setIsAdmin } = useAuth()
+    const { login, setIsLoggedin, setIsAdmin, isAdmin } = useAuth()
     const [error, setError] = useState("")
     // const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
@@ -18,14 +19,20 @@ export default function Login() {
         try {
             setError("")
             // setLoading(true)
+            if((emailRef.current.value.split('@')[1] !== '@admin.com') && isAdmin){
+                throw new Error('You are not authorised')
+            }
             await login(emailRef.current.value, passwordRef.current.value)
             setIsLoggedin(true)
             navigate("/")
-        } catch {
+        } catch (e){
             setError("Failed to log in")
+            if(e.message ==='You are not authorised')
+            {
+                setError(e.message)
+            }
         }
         
-        // setIsAdmin(true)
         // setLoading(false)
     }
 
