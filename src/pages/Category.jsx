@@ -3,6 +3,7 @@ import '../styles/category.css'
 import { useParams } from "react-router"
 import { useState, useEffect } from "react"
 import { BASE_URL } from "../constants/URL"
+import axios from "axios"
 // import Pagination from "../components/UI/pagination"
 // import { NoResults } from '../components/UI/NoResults'
 
@@ -38,7 +39,7 @@ export const CategoryPage = props => {
     useEffect(() => {
         let products
         let prods
-        fetch(BASE_URL + `/products/categories/${params.name}`)
+        axios.get(BASE_URL + `/products/categories/${params.name}`)
             .then(res => res.json())
             .then(json => {
                 products = json

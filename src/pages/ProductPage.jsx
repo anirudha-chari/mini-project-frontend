@@ -3,20 +3,21 @@ import { ProductCard } from '../components/UI/Card'
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../constants/URL';
+import axios from 'axios';
 
 export const ProductPage = props => {
     const params = useParams()
     const [loading, setLoading] = useState(true)
 
     const [product, setProduct] = useState(null)
-    useEffect(() => fetch(BASE_URL + `/products/${params.id}`)
-        .then(res => res.json())
+    useEffect(() => axios.get(BASE_URL + `/products/${params.id}`)
+        .then(res => res.data)
         .then(json => setProduct(json))
         .then(()=>setLoading(false)), [params.id])
 
     const [products, setProducts] = useState(null)
-    useEffect(() => fetch(BASE_URL + `/products/${"categories/" + (product && product.category)}`)
-        .then(res => res.json())
+    useEffect(() => axios.get(BASE_URL + `/products/${"categories/" + (product && product.category)}`)
+        .then(res => res.data)
         .then(json => setProducts(json)), [product])
 
     return (

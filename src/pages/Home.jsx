@@ -12,7 +12,7 @@ export const HomePane = props => {
     const [loadingCategories, setLoadingCategories] = useState()
 
     useEffect(() => {
-        axios.get(BASE_URL + '/products/')
+        axios.get(BASE_URL + '/products')
             .then(setLoadingCategories(true))
             .then(json => setProducts(json.data))
             .then(setLoadingCategories(false))
