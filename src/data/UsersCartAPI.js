@@ -77,7 +77,7 @@ const UsersCartAPI = {
             "id": productId,
             "quantity": quantity
         }
-        await axios.get(BASE_URL + `/products/${userId}`)
+        await axios.get(BASE_URL + `/products/${productId}`)
             .then(json => {
                 productData["stock"] = json["stock"]
                 productData["description"] = json["description"]

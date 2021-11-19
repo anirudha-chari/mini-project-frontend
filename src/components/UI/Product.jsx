@@ -5,9 +5,9 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import UsersCartAPI from "../../data/UsersCartAPI";
 
 import '../../styles/product.css'
-import cart from '../../data/cartContents';
+// import cart from '../../data/cartContents';
 
-export const Product = ({ product, loading }) => {
+export const Product = ({ product }) => {
     const [quantity, setQuantity] = useState(1)
     const [btndisabled, setBtndisabled] = useState(true)
 
@@ -21,15 +21,15 @@ export const Product = ({ product, loading }) => {
     return (
         <>
             <div className="col-4 img-container">
-                <img src={"http://139.59.12.232:8082/imgs/"+product.image} alt={product.title} className="img-thumbnail" />
+                <img src={product.product_photo} alt={product.title} className="img-thumbnail" />
             </div>
 
             <div className="col-7 product-info">
-                <h2 className="product-name"> {product.title}</h2>
-                <h3>price: <span className="price-tag">₹{product.price}</span></h3>
+                <h2 className="product-name"> {product.name}</h2>
+                <h3>price: <span className="price-tag" style={{fontFamily:"monospace"}}>₹{product.price}</span></h3>
                 <p className="product-description">{product.description}</p>
                 <span className={(product.stock > 0) ? "badge bg-success" : "badge bg-danger"} >{`${product.stock} left in stock`}</span>
-                <Rating rating={product.rating} />
+                <Rating rating={product.ratings} />
                 <div>
                     <button onClick={
                         () => {
@@ -49,7 +49,7 @@ export const Product = ({ product, loading }) => {
                         }
                     } className="btn btn-outline-secondary">+</button>
                 </div>
-                <AddToCartBtn handleClick={() => UsersCartAPI.addToUserCart(user, product.id, quantity)} />
+                <AddToCartBtn productId={product.id} quantity={quantity}/>
             </div>
         </>
     );
@@ -57,17 +57,17 @@ export const Product = ({ product, loading }) => {
 
 const Rating = props => {
     const [data, setData] = useState([{}])
-    
-    useEffect(()=>{
-        let d =[]
-        let n = Object.keys(props.rating)
+
+    useEffect(() => {
+        let d = []
+        let n = ["5 stars", "4 stars", "3 stars", "2 stars", "1 stars"]
         let v = Object.values(props.rating)
         for (let i = 0; i < 5; i++) {
             d.push({ name: n[i], val: v[i] })
         }
         setData(d)
     }, [props.rating])
-    
+
     return (
         <>
             <h5 className="text-muted">Ratings</h5>

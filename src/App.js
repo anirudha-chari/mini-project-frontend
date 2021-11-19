@@ -5,8 +5,6 @@ import { Navbar } from './components/UI/NavBar';
 import { CategoryPage } from './pages/Category';
 import { ProductPage } from './pages/ProductPage';
 import { HomePane } from './pages/Home';
-import { Profile } from './pages/Profile';
-import UserList from './components/UI/UserList'
 import AdminProductList from './pages/AdminProductList'
 import AdminAddProduct from './pages/AdminAddProduct';
 import AdminEditProduct from './pages/AdminEditProduct';
@@ -38,16 +36,14 @@ function App() {
   return (
     <div>
       <AuthProvider>
-      <Navbar handleSubmit={handleSubmit}setQuery={setQuery} />
+      <Navbar handleSubmit={handleSubmit} setQuery={setQuery} />
       <Chatbot/>
       <Routes>
         <Route exact path="/" element={<HomePane />} />
         <Route exact path="products" element={<AllProducts />} />
         <Route path="category/:name" element={<CategoryPage />} />
         <Route path="product/:id" element={<ProductPage />} />
-        <Route path="profile" element={<Profile />} />
         <Route path="search" element={<Result query={query} />} />
-        <Route path="adminviewusers" element={<PrivateAdminRoute><UserList /></PrivateAdminRoute>} />
         <Route path="adminviewproducts" element={<PrivateAdminRoute><AdminProductList /></PrivateAdminRoute>}/> 
         <Route path="admineditproduct" element={<PrivateAdminRoute><AdminEditProduct /></PrivateAdminRoute>} />
         <Route path="adminaddproduct" element={<PrivateAdminRoute><AdminAddProduct /></PrivateAdminRoute>} />
@@ -72,6 +68,7 @@ function App() {
 //   const auth = getAuth();
 //   onAuthStateChanged(auth, (user) => {
 //     if (user) {
+//       console.log(auth.currentUser)
 //       auth.currentUser.getIdToken(true).then((idtoken) => {
 //         console.log(idtoken);
 //         console.log("idtoken");
