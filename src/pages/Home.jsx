@@ -27,7 +27,7 @@ export const HomePane = props => {
 
     return (
         <section className="container-fluid">
-            <CardContainer title="Shop by health conditions">
+            <CardContainer title="Shop by Categories">
                 {!loadingCategories && categories.length > 0 && categories.map(category => <CategoryCard title={category} key={category} />)}
             </CardContainer>
             <CardContainer title="Best sellers">

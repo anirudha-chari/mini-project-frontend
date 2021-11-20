@@ -25,6 +25,7 @@ export const ProductCard = React.memo(({product}) => {
         <div className="card viewcard" style={{padding:"10px"}}>
 
             <Link to={`/product/${productId}`} style={{textDecoration:"none"}}>
+                {console.log(product.product_photo)}
                 <img src={IMAGE_URL+product.product_photo} className="card-img-top" alt={product.name} style={{ width: "208px", height: "208px", objectFit: "contain" }} />
                 <div className="card-body">
                     <h5 className="card-title" style={{ height: "72px", overflow: "hidden" }}>{product.name}</h5>
@@ -38,8 +39,8 @@ export const ProductCard = React.memo(({product}) => {
 
 export const CategoryCard = React.memo(({title}) => {
     return (
-        <Link className="card categorycard viewcard" title={title} to={`/category/${title.replace(/ /g, '_')}`} style={{ height: "3rem" }}>
-            <p className="card-text">{title}</p>
+        <Link className="card categorycard viewcard" title={title} to={`/category/${title}`} style={{ height: "3rem" }}>
+            <p className="card-text">{title.replace(/_/g, ' ')}</p>
         </Link>
     )
 })

@@ -12,7 +12,7 @@ export const Product = ({ product }) => {
     return (
         <>
             <div className="col-4 img-container">
-                <img src={IMAGE_URL+product.product_photo} alt={product.title} className="img-thumbnail" />
+                <img src={IMAGE_URL+product.product_photo} alt={product.title} className="img-thumbnail" style={{width:"400px"}} />
             </div>
 
             <div className="col-7 product-info">
