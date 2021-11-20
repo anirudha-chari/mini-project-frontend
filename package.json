@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "homepage": "http://anirudha-chari.github.io/mini-project-frontend/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
