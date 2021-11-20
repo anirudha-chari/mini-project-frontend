@@ -1,25 +1,24 @@
 {
   "files": {
-    "main.css": "/mini-project-frontend/static/css/main.fa028272.chunk.css",
-    "main.js": "/mini-project-frontend/static/js/main.75517cd6.chunk.js",
-    "main.js.map": "/mini-project-frontend/static/js/main.75517cd6.chunk.js.map",
+    "main.css": "/mini-project-frontend/static/css/main.4f2d6d16.chunk.css",
+    "main.js": "/mini-project-frontend/static/js/main.76547cc5.chunk.js",
+    "main.js.map": "/mini-project-frontend/static/js/main.76547cc5.chunk.js.map",
     "runtime-main.js": "/mini-project-frontend/static/js/runtime-main.f430a1a9.js",
     "runtime-main.js.map": "/mini-project-frontend/static/js/runtime-main.f430a1a9.js.map",
     "static/css/2.383c0125.chunk.css": "/mini-project-frontend/static/css/2.383c0125.chunk.css",
-    "static/js/2.6d1566f4.chunk.js": "/mini-project-frontend/static/js/2.6d1566f4.chunk.js",
-    "static/js/2.6d1566f4.chunk.js.map": "/mini-project-frontend/static/js/2.6d1566f4.chunk.js.map",
+    "static/js/2.cca6c6cb.chunk.js": "/mini-project-frontend/static/js/2.cca6c6cb.chunk.js",
+    "static/js/2.cca6c6cb.chunk.js.map": "/mini-project-frontend/static/js/2.cca6c6cb.chunk.js.map",
     "index.html": "/mini-project-frontend/index.html",
     "static/css/2.383c0125.chunk.css.map": "/mini-project-frontend/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.fa028272.chunk.css.map": "/mini-project-frontend/static/css/main.fa028272.chunk.css.map",
-    "static/js/2.6d1566f4.chunk.js.LICENSE.txt": "/mini-project-frontend/static/js/2.6d1566f4.chunk.js.LICENSE.txt",
-    "static/media/chatbotStyle.css": "/mini-project-frontend/static/media/send-icon.70e7f71b.png",
-    "static/media/coronavirus.8ad205b8.png": "/mini-project-frontend/static/media/coronavirus.8ad205b8.png"
+    "static/css/main.4f2d6d16.chunk.css.map": "/mini-project-frontend/static/css/main.4f2d6d16.chunk.css.map",
+    "static/js/2.cca6c6cb.chunk.js.LICENSE.txt": "/mini-project-frontend/static/js/2.cca6c6cb.chunk.js.LICENSE.txt",
+    "static/media/chatbotStyle.css": "/mini-project-frontend/static/media/send-icon.70e7f71b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f430a1a9.js",
     "static/css/2.383c0125.chunk.css",
-    "static/js/2.6d1566f4.chunk.js",
-    "static/css/main.fa028272.chunk.css",
-    "static/js/main.75517cd6.chunk.js"
+    "static/js/2.cca6c6cb.chunk.js",
+    "static/css/main.4f2d6d16.chunk.css",
+    "static/js/main.76547cc5.chunk.js"
   ]
 }
