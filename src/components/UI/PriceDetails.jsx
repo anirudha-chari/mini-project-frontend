@@ -15,7 +15,7 @@ function PriceDetails(props) {
             <p className="price-details-text">
                 <span className="left-aligned">Discount</span>
                 <span className="right-aligned">
-                    -&#8377;{100*props.productsList.length}
+                    -&#8377;{10*props.productsList.length}
                 </span>
             </p>
             <p className="price-details-text">
@@ -26,7 +26,7 @@ function PriceDetails(props) {
         <div className="price-details-footer">
             <span className="left-aligned">Total Amount</span>
             <span className="right-aligned">
-                &#8377;{UsersCartAPI.calculateTotalAmount(props.userId) - 100*props.productsList.length}
+                &#8377;{UsersCartAPI.calculateTotalAmount(props.userId) - 10*props.productsList.length}
             </span>
         </div>
     </div>

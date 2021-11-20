@@ -40,7 +40,7 @@ export const Product = ({ product }) => {
                         }
                     } className="btn btn-outline-secondary">+</button>
                 </div>
-                <AddToCartBtn productId={product.id} quantity={quantity}/>
+                <AddToCartBtn productId={product.id} quantity={quantity} prodStock={product.stock}/>
             </div>
         </>
     );

@@ -32,7 +32,7 @@ export const ProductCard = React.memo(({product}) => {
                     <p className="card-text" >MRP <span className="price-tag" style={{fontFamily:"monospace"}}>₹{product.price}</span></p>
                 </div>
             </Link>
-            <AddToCartBtn productId={product.id} quantity={1} />
+            <AddToCartBtn productId={product.id} quantity={1} prodStock={product.stock}/>
         </div>
     )
 })
