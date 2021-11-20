@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/UI/NavBar';
 import { CategoryPage } from './pages/Category';
 import { ProductPage } from './pages/ProductPage';
@@ -36,14 +36,15 @@ function App() {
   useEffect(() => {
     UsersCartAPI.initialSetup()
   }, [])
-  
   return (
     <div>
       <AuthProvider>
       <Navbar handleSubmit={handleSubmit} setQuery={setQuery} />
       <Chatbot />
       <Routes>
+      {/* <Route exact path="/mini-project-front" element={<HomePane />} /> */}
       <Route exact path="/" element={<HomePane />} />
+      <Route path="/mini-project-frontend" element={<Navigate replace to="/" />} />
       <Route exact path="products" element={<AllProducts />} />
       <Route path="category/:name" element={<CategoryPage />} />
       <Route path="product/:id" element={<ProductPage />} />

@@ -2,7 +2,7 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import { TextField } from "@mui/material";
 import React, {useState}from "react";
-import AdminSidebar from "../components/UI/AdminSidebar";
+// import AdminSidebar from "../components/UI/AdminSidebar";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -49,7 +49,7 @@ function AdminEditProduct() {
      }
     return (
         <div className="container2" >
-              <AdminSidebar/>
+              {/* <AdminSidebar/> */}
 
               <div className="main">
 
