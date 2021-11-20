@@ -3,6 +3,7 @@ import { AddToCartBtn } from './Buttons';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 import '../../styles/product.css'
+import { IMAGE_URL } from '../../constants/URL';
 
 export const Product = ({ product }) => {
     const [quantity, setQuantity] = useState(1)
@@ -11,7 +12,7 @@ export const Product = ({ product }) => {
     return (
         <>
             <div className="col-4 img-container">
-                <img src={product.product_photo} alt={product.title} className="img-thumbnail" />
+                <img src={IMAGE_URL+product.product_photo} alt={product.title} className="img-thumbnail" />
             </div>
 
             <div className="col-7 product-info">

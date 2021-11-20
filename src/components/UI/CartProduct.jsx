@@ -2,15 +2,14 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom"
 import "../../styles/cartProductStyle.css";
 import UsersCartAPI from "../../data/UsersCartAPI"
-import logo from "../../images/coronavirus.png";
 import axios from "axios";
-import { BASE_URL } from "../../constants/URL";
+import { BASE_URL, IMAGE_URL } from "../../constants/URL";
 
 function CartProduct({product, userId}) {
     const [image, setImage] = useState()
     axios.get(BASE_URL+`/products/${product.id}`)
     .then(res => res.data)
-    .then(data => setImage(data.product_photo))
+    .then(data => setImage(IMAGE_URL+data.product_photo))
     return <div className="product">
         <div className="image-container">
             <img className="image" src={image} alt="logo"/>
